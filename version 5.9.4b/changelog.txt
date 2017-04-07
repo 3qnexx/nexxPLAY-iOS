@@ -1,0 +1,4 @@
+Changelog v5.9.4b
+
+Bugfixes:
+ - Captions button only shown for media containing captions
