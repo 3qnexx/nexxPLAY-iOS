@@ -186,6 +186,8 @@ SWIFT_CLASS("_TtC8nexxPlay10PlayerView")
 - (void)setStreamingFilter:(NSString * _Nonnull)filter;
 - (float)getCurrentTime SWIFT_WARN_UNUSED_RESULT;
 - (void)setUserHash:(NSString * _Nonnull)userHash;
+- (void)overrideCaptionMode:(NSString * _Nonnull)mode;
+- (void)disableAds:(BOOL)disablePre disableMid:(BOOL)disableMid disableBanner:(BOOL)disableBanner disablePost:(BOOL)disablePost;
 @end
 
 
