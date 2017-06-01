@@ -188,6 +188,7 @@ SWIFT_CLASS("_TtC8nexxPlay10PlayerView")
 - (void)setUserHash:(NSString * _Nonnull)userHash;
 - (void)overrideCaptionMode:(NSString * _Nonnull)mode;
 - (void)disableAds:(BOOL)disablePre disableMid:(BOOL)disableMid disableBanner:(BOOL)disableBanner disablePost:(BOOL)disablePost;
+- (void)setSSL:(BOOL)useSSL;
 @end
 
 
