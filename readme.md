@@ -2,6 +2,13 @@
 
 ## Changelog
 
+#### v5.9.75
+- URL encoding enhanced
+- Information to the user when the device is offline while streaming
+- Simple hotspot support added
+
+Compiled with XCode 10 (Swift 4.2)
+
 #### v5.9.74
 - Reporting improved
 - Showing thumbs (if available) when seeking through the media with a pan gesture
