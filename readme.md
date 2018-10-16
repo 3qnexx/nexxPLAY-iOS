@@ -55,7 +55,7 @@ Compiled with XCode 9.4.1 (Swift 4.1)
 4. Change your tab to “Build Phases”
 5. Drag the nexxPlay.bundle from the Finder to the “Copy Bundle resources”
 6. Still in “Build Phases”, click on the “+“ icon and add a new run script phase
-7. Copy the code from the file “strip-framework.sh” into the run script phase
+7. Copy the code from the file “strip-framework.sh” into the run script phase. Please make sure that this run script phase is the last phase of the build process!
 8. IMPORTANT CHANGE IN XCODE 8, ONLY Objective-C: Change your tab to “Build Settings” and make sure that “Always Embed Swift Standard Libraries” is set to “YES” (the default value is “NO”)
 
 #### 3rd party frameworks
