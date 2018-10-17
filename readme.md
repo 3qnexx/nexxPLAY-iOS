@@ -2,6 +2,14 @@
 
 ## Changelog
 
+#### v5.9.76
+- URL encoding enhanced
+- exit reporting added
+- public method getMediaData() enhanced
+- Seekbar image preview improved
+
+Compiled with XCode 10 (Swift 4.2)
+
 #### v5.9.75
 - URL encoding enhanced
 - Information to the user when the device is offline while streaming
