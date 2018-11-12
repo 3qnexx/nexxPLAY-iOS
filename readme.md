@@ -2,6 +2,14 @@
 
 ## Changelog
 
+#### v5.9.77
+- URL encoding enhanced
+- CMAF support added
+- Hotspots enhanced
+- Exit preview added
+
+Compiled with XCode 10.1 (Swift 4.2)
+
 #### v5.9.76
 - URL encoding enhanced
 - exit reporting added
