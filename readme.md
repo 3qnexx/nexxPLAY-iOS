@@ -2,6 +2,13 @@
 
 ## Changelog
 
+#### v5.9.78
+- getMediaData() also works after error notifications now
+- offline improvements
+- revolver play improvements
+
+Compiled with XCode 10.1 (Swift 4.2)
+
 #### v5.9.77
 - URL encoding enhanced
 - CMAF support added
