@@ -2,6 +2,13 @@
 
 ## Changelog
 
+#### v5.9.79
+- UI and UX improvements
+- public method setLanguage() added
+- automatically start PiP when app is moved to background, stop PiP on app resume
+
+Compiled with XCode 10.1 (Swift 4.2)
+
 #### v5.9.78
 - getMediaData() also works after error notifications now
 - offline improvements
