@@ -2,6 +2,13 @@
 
 ## Changelog
 
+#### v5.9.80
+- UI and UX improvements
+- different exit hotspot possible
+- reporting enhanced
+
+Compiled with XCode 10.2.1 (Swift 5.0)
+
 #### v5.9.79
 - UI and UX improvements
 - public method setLanguage() added
