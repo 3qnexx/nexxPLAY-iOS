@@ -99,8 +99,8 @@ Compiled with XCode 9.4.1 (Swift 4.1)
 
 nexxPLAY contains presenting video ads via the Google IMA SDK and from v5.9.73 also the possiblity to download media files in order to watch videos when the device is offline. Therefore two additional SDKs need to be added to the project:
 
-- GoogleInteractiveMediaAds.framework
-- DailymeSdk.framework
+- GoogleInteractiveMediaAds.framework (please download v3.9.0 from https://developers.google.com/interactive-media-ads/docs/sdks/ios/download)
+- DailymeSdk.framework (available in this repository)
 
 Please drag these frameworks into the "Embedded Binaries" section of your target (exactely as explained for the nexxPLAY framework in steps 1 and 2) and make sure they also appear in the "Linked Frameworks and Libraries" section (nexxPLAY integration step 3).
 
