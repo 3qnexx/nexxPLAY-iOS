@@ -27,9 +27,19 @@
 @property(nonatomic, copy, readonly) NSArray *companionSlots;
 
 /**
+ *  Initializes IMAAdDisplayContainer for rendering the ad and displaying the ad UI without any
+ *  companion slots.
+ *
+ *  @param adContainer    the UIView where the ad will be rendered. Fills the view's bounds.
+ *
+ *  @return the IMAAdDisplayContainer instance
+ */
+- (instancetype)initWithAdContainer:(UIView *)adContainer;
+
+/**
  *  Initializes IMAAdDisplayContainer for rendering the ad and displaying the ad UI.
  *
- *  @param adContainer    the UIView where the ad will be rendered. Fills the view's bounds
+ *  @param adContainer    the UIView where the ad will be rendered. Fills the view's bounds.
  *  @param companionSlots the array of IMACompanionAdSlots. Can be nil or empty.
  *
  *  @return the IMAAdDisplayContainer instance
@@ -41,5 +51,21 @@
  * :nodoc:
  */
 - (instancetype)init NS_UNAVAILABLE;
+
+/**
+ *  Registers your application's video playback controls that will overlay this container. Multiple
+ *  controls may be registered with this method.
+ *  WARNING: It is critical that this UI obscure as little ad space as possible so that viewabilty
+ *  measurement isn't impacted.
+ *
+ *  @param videoControlsOverlay Small or mostly transparent video controls presented over the
+ *      container.
+ */
+- (void)registerVideoControlsOverlay:(UIView *)videoControlsOverlay;
+
+/**
+ *  Unregisters all previously registered video controls overlays.
+ */
+- (void)unregisterAllVideoControlsOverlays;
 
 @end

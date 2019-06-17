@@ -54,7 +54,7 @@
  *  playback.
  */
 
-@property(nonatomic, copy, readonly) NSArray *uiElements;
+@property(nonatomic, copy, readonly) NSArray<NSNumber *> *uiElements;
 
 /**
  *  Whether or not the ad UI will be disabled for this ad.
@@ -67,14 +67,29 @@
  *  of the ad representation. For linear ads, since they scale seamlessly, we
  *  currently return 0 for width.
  */
-@property(nonatomic, readonly) int width;
+@property(nonatomic, readonly) NSInteger width;
 
 /**
  *  The height of the ad asset. For non-linear ads, this is the actual height
  *  of the ad representation. For linear ads, since they scale seamlessly, we
  *  currently return 0 for height.
  */
-@property(nonatomic, readonly) int height;
+@property(nonatomic, readonly) NSInteger height;
+
+/**
+ *  The width of the selected creative as specified in the VAST response.
+ */
+@property(nonatomic, readonly) NSInteger VASTMediaWidth;
+
+/**
+ *  The height of the selected creative as specified in the VAST response.
+ */
+@property(nonatomic, readonly) NSInteger VASTMediaHeight;
+
+/**
+ *  The bitrate of the selected creative as specified in the VAST response.
+ */
+@property(nonatomic, readonly) NSInteger VASTMediaBitrate;
 
 /**
  *  Specifies whether the ad is linear or non-linear.

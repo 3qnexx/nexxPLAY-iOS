@@ -60,8 +60,9 @@
  *  Informs the SDK the ad playback failed due to an error.
  *
  *  @param videoDisplay the IMAVideoDisplay that failed to play the ad
+ *  @param error the error that caused the video display to fail to play the ad
  */
-- (void)videoDisplayDidReceiveError:(id<IMAVideoDisplay>)videoDisplay;
+- (void)videoDisplay:(id<IMAVideoDisplay>)videoDisplay didReceiveError:(NSError *)error;
 
 /**
  *  Informs the SDK the ad was skipped.
@@ -167,8 +168,8 @@
  *                    subtitle key/value pairs. Here's an example NSDictionary for English:
  *
  *                    "language" -> "en"
- *                    "webvtt" -> "https://somedomain/vtt/en.vtt"
- *                    "ttml" -> "https://somedomain/ttml/en.ttml"
+ *                    "webvtt" -> "https://somedomain.com/vtt/en.vtt"
+ *                    "ttml" -> "https://somedomain.com/ttml/en.ttml"
  */
 - (void)loadStream:(NSURL *)streamURL withSubtitles:(NSArray *)subtitles;
 
@@ -193,5 +194,12 @@
  *  Called to remove all video assets from the player.
  */
 - (void)reset;
+
+/**
+ *  Called to inform that the stream needs to be seeked to the given time.
+ *
+ *  @param time  the time to which the stream should be seeked
+ */
+- (void)seekStreamToTime:(NSTimeInterval)time;
 
 @end
