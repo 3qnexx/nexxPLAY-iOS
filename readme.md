@@ -2,6 +2,10 @@
 
 ## Changelog
 
+#### v5.9.81
+- preview mode enhanced
+- reporting improved
+
 #### v5.9.80
 - UI and UX improvements
 - different exit hotspot possible
@@ -105,6 +109,9 @@ nexxPLAY contains presenting video ads via the Google IMA SDK and from v5.9.73 a
 Please drag these frameworks into the "Embedded Binaries" section of your target (exactely as explained for the nexxPLAY framework in steps 1 and 2) and make sure they also appear in the "Linked Frameworks and Libraries" section (nexxPLAY integration step 3).
 
 
+#### Airplay and Picture in Picture support
+
+The player does support Airplay and PiP, if it is also supported by the device. Furthermore the __Background Modes__ capability _Audio, Airplay and Picture in Picture_ must be activated in your project settings in Xcode.
 
 
 
