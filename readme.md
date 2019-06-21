@@ -226,38 +226,38 @@ The current video is set to the defined position (in seconds).
 #### getMediaData(getEnhanced:Bool) -> [String:String]
 Returns details about the current video as a dictionary. These details contain:
 Keys              
-`mediaID` The id of the current media   
-`mediaDomain` The domain of the current media    
-`hash` The hash value    
-`title` The title of the media     
-`subtitle` The subtitle (optional)     
-`runtime` The runtime of the media (optional)     
-`actors` The actors (optional)     
-`channel` The channel (optional)     
-`channel_id` The channel id (optional)     
-`channel_adref` The channel ad reference (optional)      
-`thumb` The url of the thumb (optional)      
-`uploaded` The UNIX Timestamp stating when the media was uploaded (optional)      
-`created` The UNIX Timestamp stating when the media was created (optional)      
-`orderhint` The order hint (optional)       
-`licenseBy` (optional)      
-`studio` (optional)      
-`studio_adref` (optional)       
-`currentCaptionLanguage` The order hint (optional)      
-`currentPlaybackSpeed` The playback speed (currently always 1)       
-`isStitched` static value (0)      
-`isPresentation` static value (0)       
-`currentAudioLanguage` The name of the current language if the media fiel supports multiple languages (optional)       
+* `mediaID` The id of the current media   
+* `mediaDomain` The domain of the current media    
+* `hash` The hash value    
+* `title` The title of the media     
+* `subtitle` The subtitle (optional)     
+* `runtime` The runtime of the media (optional)     
+* `actors` The actors (optional)     
+* `channel` The channel (optional)     
+* `channel_id` The channel id (optional)     
+* `channel_adref` The channel ad reference (optional)      
+* `thumb` The url of the thumb (optional)      
+* `uploaded` The UNIX Timestamp stating when the media was uploaded (optional)      
+* `created` The UNIX Timestamp stating when the media was created (optional)      
+* `orderhint` The order hint (optional)       
+* `licenseBy` (optional)      
+* `studio` (optional)      
+* `studio_adref` (optional)       
+* `currentCaptionLanguage` The order hint (optional)      
+* `currentPlaybackSpeed` The playback speed (currently always 1)       
+* `isStitched` static value (0)      
+* `isPresentation` static value (0)       
+* `currentAudioLanguage` The name of the current language if the media fiel supports multiple languages (optional)       
 
 If there is no current video, the method returns an empty dictionary. If the dictionary is not empty, the attributes mediaID, hash and title are set. All other attributes are optional and may not be available.
 If you set the optional getEnhanced attribute to true, you will get additional parameters:
 
-`mediaSession` The session id of the current video      
-`mediaSessionParent` The parent id of the current video     
-`currentDuration` The duration the player is playing. Can be different to currentTime if the user skips seconds or jumps to other timestamps     
-`currentTime` The current timestamp of the playing video     
-`streamType` The stream type (_live_ oder _video_)     
-`isAutoPlay` Defining whether the video was started automatically (_1_ or _0_)     
+* `mediaSession` The session id of the current video      
+* `mediaSessionParent` The parent id of the current video     
+* `currentDuration` The duration the player is playing. Can be different to currentTime if the user skips seconds or jumps to other timestamps     
+* `currentTime` The current timestamp of the playing video     
+* `streamType` The stream type (_live_ oder _video_)     
+* `isAutoPlay` Defining whether the video was started automatically (_1_ or _0_)     
 
 #### checkPayment() 
 In case the player was automatically paused because a preview of a video was shown, this method can trigger the check for payment in case the check is positive, the player resumes the video.
@@ -295,12 +295,12 @@ The player starts playing the content video. If there is an ad before the actual
 ##### nexxPlayPlayNotification
 Whenever the video starts to play (also after pause).    
 __userInfo:__    
-`byUserAction` : Whether the player was started by the user or not
+* `byUserAction` : Whether the player was started by the user or not
 
 ##### nexxPlayPauseNotification
 Whenever the video pauses.    
 __userInfo:__    
-`byUserAction` : Whether the player was started by the user or not
+* `byUserAction` : Whether the player was started by the user or not
 
 ##### nexxPlayEndedNotification
 Whenever the video is finished.
@@ -308,44 +308,44 @@ Whenever the video is finished.
 ##### nexxPlayPlayPosNotification
 The player switches to a new video in the playlist.    
 __userInfo:__    
-`position` : The video position
+* `position` : The video position
 
 ##### nexxPlayAdCalledNotification
 The player asks for ad information.    
 __userInfo:__    
-`mode` : The adMode, “ima” or “vast”     
-`type` : “preroll”, “midroll”, “banner” or “postroll”
+* `mode` : The adMode, “ima” or “vast”     
+* `type` : “preroll”, “midroll”, “banner” or “postroll”
 
 
 ##### nexxPlayAdStartedNotification
 The player starts a video ad.    
 __userInfo:__    
-`mode` : The adMode, “ima” or “vast”      
-`type` : “preroll”, “midroll”, “banner” or “postroll”
+* `mode` : The adMode, “ima” or “vast”      
+* `type` : “preroll”, “midroll”, “banner” or “postroll”
 
 ##### nexxPlayAdEndedNotification
 A video ad is finished (or skipped if possible).    
 __userInfo:__    
-`mode` : The adMode, “ima” or “vast”      
-`type` : “preroll”, “midroll”, “banner” or “postroll”
+* `mode` : The adMode, “ima” or “vast”      
+* `type` : “preroll”, “midroll”, “banner” or “postroll”
 
 ##### nexxPlayAdErrorNotification
 An error regarding the video ad occured.    
 __userInfo:__    
-`mode` : The adMode, “ima” or “vast”      
-`type` : “preroll”, “midroll”, “banner” or “postroll”
+* `mode` : The adMode, “ima” or “vast”      
+* `type` : “preroll”, “midroll”, “banner” or “postroll”
 
 ##### nexxPlayAdClickedNotification
 The video ad was clicked.    
 __userInfo:__    
-`mode` : The adMode, “ima” or “vast”      
-`type` : “preroll”, “midroll”, “banner” or “postroll”
+* `mode` : The adMode, “ima” or “vast”      
+* `type` : “preroll”, “midroll”, “banner” or “postroll”
 
 ##### nexxPlayAdResumedNotification
 The video ad continues playing after the user clicked on it.    
 __userInfo:__    
-`mode` : The adMode, “ima” or “vast”      
-`type` : “preroll”, “midroll”, “banner” or “postroll”
+* `mode` : The adMode, “ima” or “vast”      
+* `type` : “preroll”, “midroll”, “banner” or “postroll”
 
 
 ##### nexxPlayPayPreviewEndedNotification
@@ -357,8 +357,8 @@ If the player is used in combination with cordova and the user presses the close
 ##### nexxPlayMetaDataLoadedNotification
 Every time the meta data for a video is loaded.     
 __userInfo:__    
-`orientation` : the media orientation, for audio streams “none”     
-`hasAudio` : 1 if the media  has audio, 0 otherwise
+* `orientation` : the media orientation, for audio streams “none”     
+* `hasAudio` : 1 if the media  has audio, 0 otherwise
 
 ##### nexxPlayShowUINotification 
 Every time the player controls become visible.
@@ -384,12 +384,12 @@ The player has been unmuted.
 ##### nexxPlaySecondNotification 
 Is sent every second when the player is playing a video.    
 __userInfo:__    
-`duration` : The played duration
+* `duration` : The played duration
 
 ##### nexxPlayQuarterNotification 
 Is sent every 15 seconds when the player is playing a video.    
 __userInfo:__    
-`progress` : The played duration
+* `progress` : The played duration
 
 ##### nexxPlayStartSessionNotification 
 The player has been assigned a session ID.
@@ -406,17 +406,17 @@ Picture in picture did stop and the video is presented in the application.
 ##### nexxPlayRemoteEnteredNotification 
 The video is presented via airplay on an external device.    
 __userInfo:__    
-`device` : “airplay”
+* `device` : “airplay”
 
 ##### nexxPlayRemoteExitedNotification 
 Airplay is stopped and the video is presented by the application.    
 __userInfo:__    
-`device` : “airplay”
+* `device` : “airplay”
 
 ##### nexxPlayReplayNotification 
 The video is finished and restarted, either automatically or by user interaction.    
 __userInfo:__    
-`byUserAction` : 1 or 0
+* `byUserAction` : 1 or 0
 
 ##### nexxPlayMainInteractionNotification 
 The video presentation is started by pressing the main start button.
