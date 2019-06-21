@@ -42,12 +42,12 @@ import nexxPlay
 
 class ViewController: UIViewController {
 
-override func viewDidLoad() { 
-super.viewDidLoad()
-let v_player = PlayerView(frame: CGRect(x: 0, y: 0, width: 300, height: 300)) view.addSubview(v_player)
-//possible predefinitions v_player.overrideMidroll(“http://vastURL”, interval:5) v_player.overrideAutoPlay(true)
-v_player.startPlay("0", client: "571", playmode: "single", param: "40164") 
-}
+    override func viewDidLoad() { 
+        super.viewDidLoad()
+        let v_player = PlayerView(frame: CGRect(x: 0, y: 0, width: 300, height: 300)) view.addSubview(v_player)
+        //possible predefinitions v_player.overrideMidroll(“http://vastURL”, interval:5) v_player.overrideAutoPlay(true)
+        v_player.startPlay("0", client: "571", playmode: "single", param: "40164") 
+    }
 }
 ```
 
@@ -61,14 +61,14 @@ v_player.startPlay("0", client: "571", playmode: "single", param: "40164")
 @implementation ViewController
 
 - (void)viewDidLoad {
-[super viewDidLoad];
+    [super viewDidLoad];
 
-// Do any additional setup after loading the view, typically from a nib.
-PlayerView* view = [[PlayerView alloc] initWithFrame:CGRectMake(0.0, 0.0, 300.0, 300.0)];
-[self.view addSubview:view];
-//possible predefinitions
-[v_player overrideMidroll:@“http://vastURL” interval:5]; [v_player overrideAutoPlay:YES];
-[view startPlay:@"0" client:@"571" playmode:@"single" param:@"40164" startPosition:0 startItem:0];
+    // Do any additional setup after loading the view, typically from a nib.
+    PlayerView* view = [[PlayerView alloc] initWithFrame:CGRectMake(0.0, 0.0, 300.0, 300.0)];
+    [self.view addSubview:view];
+    //possible predefinitions
+    [v_player overrideMidroll:@“http://vastURL” interval:5]; [v_player overrideAutoPlay:YES];
+    [view startPlay:@"0" client:@"571" playmode:@"single" param:@"40164" startPosition:0 startItem:0];
 }
 
 @end
@@ -294,12 +294,12 @@ The player starts playing the content video. If there is an ad before the actual
 
 ##### nexxPlayPlayNotification
 Whenever the video starts to play (also after pause).
-__userInfo:__
+###### userInfo:
 `byUserAction` : Whether the player was started by the user or not
 
 ##### nexxPlayPauseNotification
 Whenever the video pauses.
-__userInfo:__
+###### userInfo:
 `byUserAction` : Whether the player was started by the user or not
 
 ##### nexxPlayEndedNotification
@@ -307,43 +307,43 @@ Whenever the video is finished.
 
 ##### nexxPlayPlayPosNotification
 The player switches to a new video in the playlist.
-__userInfo:__
+###### userInfo:
 `position` : The video position
 
 ##### nexxPlayAdCalledNotification
 The player asks for ad information.
-__userInfo:__
+###### userInfo:
 `mode` : The adMode, “ima” or “vast”
 `type` : “preroll”, “midroll”, “banner” or “postroll”
 
 
 ##### nexxPlayAdStartedNotification
 The player starts a video ad.
-__userInfo:__
+###### userInfo:
 `mode` : The adMode, “ima” or “vast”
 `type` : “preroll”, “midroll”, “banner” or “postroll”
 
 ##### nexxPlayAdEndedNotification
 A video ad is finished (or skipped if possible).
-__userInfo:__
+###### userInfo:
 `mode` : The adMode, “ima” or “vast”
 `type` : “preroll”, “midroll”, “banner” or “postroll”
 
 ##### nexxPlayAdErrorNotification
 An error regarding the video ad occured.
-__userInfo:__
+###### userInfo:
 `mode` : The adMode, “ima” or “vast”
 `type` : “preroll”, “midroll”, “banner” or “postroll”
 
 ##### nexxPlayAdClickedNotification
 The video ad was clicked.
-__userInfo:__
+###### userInfo:
 `mode` : The adMode, “ima” or “vast”
 `type` : “preroll”, “midroll”, “banner” or “postroll”
 
 ##### nexxPlayAdResumedNotification
 The video ad continues playing after the user clicked on it.
-__userInfo:__
+###### userInfo:
 `mode` : The adMode, “ima” or “vast”
 `type` : “preroll”, “midroll”, “banner” or “postroll”
 
@@ -356,7 +356,7 @@ If the player is used in combination with cordova and the user presses the close
 
 ##### nexxPlayMetaDataLoadedNotification
 Every time the meta data for a video is loaded.
-__userInfo:__
+###### userInfo:
 `orientation` : the media orientation, for audio streams “none”
 `hasAudio` : 1 if the media  has audio, 0 otherwise
 
@@ -383,12 +383,12 @@ The player has been unmuted.
 
 ##### nexxPlaySecondNotification 
 Is sent every second when the player is playing a video.
-__userInfo:__
+###### userInfo:
 `duration` : The played duration
 
 ##### nexxPlayQuarterNotification 
 Is sent every 15 seconds when the player is playing a video.
-__userInfo:__
+###### userInfo:
 `progress` : The played duration
 
 ##### nexxPlayStartSessionNotification 
@@ -405,17 +405,17 @@ Picture in picture did stop and the video is presented in the application.
 
 ##### nexxPlayRemoteEnteredNotification 
 The video is presented via airplay on an external device.
-__userInfo:__
+###### userInfo:
 `device` : “airplay”
 
 ##### nexxPlayRemoteExitedNotification 
 Airplay is stopped and the video is presented by the application.
-__userInfo:__
+###### userInfo:
 `device` : “airplay”
 
 ##### nexxPlayReplayNotification 
 The video is finished and restarted, either automatically or by user interaction.
-__userInfo:__
+###### userInfo:
 `byUserAction` : 1 or 0
 
 ##### nexxPlayMainInteractionNotification 
