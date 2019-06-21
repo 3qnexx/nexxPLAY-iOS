@@ -225,7 +225,6 @@ The current video is set to the defined position (in seconds).
 
 #### getMediaData(getEnhanced:Bool) -> [String:String]
 Returns details about the current video as a dictionary. These details contain:
-Keys              
 * `mediaID` The id of the current media   
 * `mediaDomain` The domain of the current media    
 * `hash` The hash value    
@@ -420,6 +419,65 @@ __userInfo:__
 
 ##### nexxPlayMainInteractionNotification 
 The video presentation is started by pressing the main start button.
+
+### Observing notifications
+
+The notifications are sent by the NSNotificationCenter. To receive a notification you can use the following code snippet:
+
+##### Swift
+
+```swift
+NSNotificationCenter.defaultCenter().addObserver(self, selector: "notificationReceived:", name: nexxPlay.nexxPlayErrorNotification, object: playerView)
+```
+
+##### Objective-C
+
+```objective-c
+[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notificationReceived:) name:@"NexxPlayErrorNotification" object:playerView];
+```
+The appropriate function that is called when the notification is received:
+
+##### Swift
+
+```swift
+@objc func notificationReceived(notification:NSNotification) {
+    println(notification.name)        // prints “NexxPlayErrorNotification”
+    if notification.name == nexxPlay.nexxPlayPlayPosNotification, let userInfo = notification.userInfo {
+        // use the additional data in userInfo
+        
+    }
+}
+```
+
+##### Objective-C
+
+```objective-c
+- (void)notificationReceived:(NSNotification*)notification {
+    NSLog(notification.name);
+    if ([notification.name isEqualToString:@"NexxPlayPlayPosNotification"]) {
+        if (notification.userInfo != nil) {
+        // use the additional data in userInfo
+        }
+    }
+}
+```
+If you have multiple players you can determine the player that sent the notification by checking notification.object 
+
+If you want to receive all notifications from the player, there is a convenience function:
+
+##### Swift
+
+```swift
+playerView.addObserverForAllNotifications(observer, selector:”notificationReceived:”)
+```
+
+##### Objective-C
+
+```objective-c
+[playerView addObserverForAllNotifications:self selector:@"notificationReceived:"];
+``` 
+Whenever a notification from playerView is received by the observer, the function `notificationReceived:` is called. With `notification.name` you can determine which notification was received and act accordingly.
+                                                                                          
 
 ## Further information
 
