@@ -293,57 +293,57 @@ The player did load the video data.
 The player starts playing the content video. If there is an ad before the actual content video, this notification is fired once the ad is ended and the content will start.
 
 ##### nexxPlayPlayNotification
-Whenever the video starts to play (also after pause).
-###### userInfo:
+Whenever the video starts to play (also after pause).    
+__userInfo:__    
 `byUserAction` : Whether the player was started by the user or not
 
 ##### nexxPlayPauseNotification
-Whenever the video pauses.
-###### userInfo:
+Whenever the video pauses.    
+__userInfo:__    
 `byUserAction` : Whether the player was started by the user or not
 
 ##### nexxPlayEndedNotification
 Whenever the video is finished.
 
 ##### nexxPlayPlayPosNotification
-The player switches to a new video in the playlist.
-###### userInfo:
+The player switches to a new video in the playlist.    
+__userInfo:__    
 `position` : The video position
 
 ##### nexxPlayAdCalledNotification
-The player asks for ad information.
-###### userInfo:
+The player asks for ad information.    
+__userInfo:__    
 `mode` : The adMode, “ima” or “vast”
 `type` : “preroll”, “midroll”, “banner” or “postroll”
 
 
 ##### nexxPlayAdStartedNotification
-The player starts a video ad.
-###### userInfo:
+The player starts a video ad.    
+__userInfo:__    
 `mode` : The adMode, “ima” or “vast”
 `type` : “preroll”, “midroll”, “banner” or “postroll”
 
 ##### nexxPlayAdEndedNotification
-A video ad is finished (or skipped if possible).
-###### userInfo:
+A video ad is finished (or skipped if possible).    
+__userInfo:__    
 `mode` : The adMode, “ima” or “vast”
 `type` : “preroll”, “midroll”, “banner” or “postroll”
 
 ##### nexxPlayAdErrorNotification
-An error regarding the video ad occured.
-###### userInfo:
+An error regarding the video ad occured.    
+__userInfo:__    
 `mode` : The adMode, “ima” or “vast”
 `type` : “preroll”, “midroll”, “banner” or “postroll”
 
 ##### nexxPlayAdClickedNotification
-The video ad was clicked.
-###### userInfo:
+The video ad was clicked.    
+__userInfo:__    
 `mode` : The adMode, “ima” or “vast”
 `type` : “preroll”, “midroll”, “banner” or “postroll”
 
 ##### nexxPlayAdResumedNotification
-The video ad continues playing after the user clicked on it.
-###### userInfo:
+The video ad continues playing after the user clicked on it.    
+__userInfo:__    
 `mode` : The adMode, “ima” or “vast”
 `type` : “preroll”, “midroll”, “banner” or “postroll”
 
@@ -355,8 +355,8 @@ If the video is shown in preview mode and the preview minutes are over.
 If the player is used in combination with cordova and the user presses the close button (only available when cordova is enabled).
 
 ##### nexxPlayMetaDataLoadedNotification
-Every time the meta data for a video is loaded.
-###### userInfo:
+Every time the meta data for a video is loaded.     
+__userInfo:__    
 `orientation` : the media orientation, for audio streams “none”
 `hasAudio` : 1 if the media  has audio, 0 otherwise
 
@@ -382,13 +382,13 @@ The player has been muted.
 The player has been unmuted.
 
 ##### nexxPlaySecondNotification 
-Is sent every second when the player is playing a video.
-###### userInfo:
+Is sent every second when the player is playing a video.    
+__userInfo:__    
 `duration` : The played duration
 
 ##### nexxPlayQuarterNotification 
-Is sent every 15 seconds when the player is playing a video.
-###### userInfo:
+Is sent every 15 seconds when the player is playing a video.    
+__userInfo:__    
 `progress` : The played duration
 
 ##### nexxPlayStartSessionNotification 
@@ -404,18 +404,18 @@ The picture in picture media presentation stopped.
 Picture in picture did stop and the video is presented in the application.
 
 ##### nexxPlayRemoteEnteredNotification 
-The video is presented via airplay on an external device.
-###### userInfo:
+The video is presented via airplay on an external device.    
+__userInfo:__    
 `device` : “airplay”
 
 ##### nexxPlayRemoteExitedNotification 
-Airplay is stopped and the video is presented by the application.
-###### userInfo:
+Airplay is stopped and the video is presented by the application.    
+__userInfo:__    
 `device` : “airplay”
 
 ##### nexxPlayReplayNotification 
-The video is finished and restarted, either automatically or by user interaction.
-###### userInfo:
+The video is finished and restarted, either automatically or by user interaction.    
+__userInfo:__    
 `byUserAction` : 1 or 0
 
 ##### nexxPlayMainInteractionNotification 
