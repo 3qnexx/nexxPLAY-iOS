@@ -2,9 +2,12 @@
 
 ## Latest version
 
-### v5.9.81
-- preview mode enhanced
+### v5.9.82
 - reporting improved
+- notification 'EndedAll' added
+- new skin 'Glass66' added
+- speed selection added
+- ad reporting bugfixes
 
 Compiled with XCode 10.2.1 (Swift 5.0)
 
@@ -495,6 +498,12 @@ The player does support Airplay and PiP, if it is also supported by the device. 
 
 
 ## Changelog
+
+### v5.9.81
+- preview mode enhanced
+- reporting improved
+
+Compiled with XCode 10.2.1 (Swift 5.0)
 
 ### v5.9.80
 - UI and UX improvements
