@@ -2,12 +2,12 @@
 
 ## Latest version
 
-### v5.9.83
-- reporting improved
-- scene selection added
-- subtitle parsing improved
+### v5.9.84
+- reporting improved: SDK version added to events
+- story mpde integrated
+- adMode attribute considered in collections
 
-Compiled with XCode 10.2.1 (Swift 5.0)
+Compiled with XCode 10.3 (Swift 5.0)
 
 ## Integration
 
@@ -277,6 +277,9 @@ In case you present the player always on the full screen of the device, call thi
 #### setUserIsTrackingOptOuted() 
 If you call this method, there will be no ad tracking in the player.
 
+#### setLanguage(code:String)
+Use this call to set the language code in the initial API call
+
 ## Player notifications
 
 To observe the player’s behaviour the framework provides multiple notifications for the application. Some notifications contain additional data in the userInfo dictionary. The different notifications and how to receive them is described below
@@ -304,6 +307,9 @@ __userInfo:__
 
 ##### nexxPlayEndedNotification
 Whenever the video is finished.
+
+##### nexxPlayEndedAllNotification
+When the last media of a playlist has finished. Also triggered at the end of a single media.
 
 ##### nexxPlayPlayPosNotification
 The player switches to a new video in the playlist.    
@@ -421,6 +427,32 @@ __userInfo:__
 ##### nexxPlayMainInteractionNotification 
 The video presentation is started by pressing the main start button.
 
+##### nexxPlayDownloadStartedNotification 
+The download of an offline media has started    
+__userInfo:__    
+* `item` : media ID
+* `title`: title of the media
+
+##### nexxPlayDownloadProgressNotification 
+There is new progress on the download of an offline media    
+__userInfo:__    
+* `item` : media ID
+* `title`: title of the media
+* `progress`: the current progress
+
+##### nexxPlayDownloadSuccessNotification 
+The download of an offline media is finished    
+__userInfo:__    
+* `item` : media ID
+* `title`: title of the media
+
+##### nexxPlayDownloadErrorNotification 
+An error occured while downloading an offline media    
+__userInfo:__    
+* `item` : media ID
+* `title`: title of the media
+* `error`: the error description
+
 ### Observing notifications
 
 The notifications are sent by the NSNotificationCenter. To receive a notification you can use the following code snippet:
@@ -496,6 +528,13 @@ The player does support Airplay and PiP, if it is also supported by the device. 
 
 
 ## Changelog
+
+### v5.9.83
+- reporting improved
+- scene selection added
+- subtitle parsing improved
+
+Compiled with XCode 10.2.1 (Swift 5.0)
 
 ### v5.9.82
 - reporting improved
