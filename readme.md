@@ -2,10 +2,11 @@
 
 ## Latest version
 
-### v5.9.84
-- reporting improved: SDK version added to events
-- story mpde integrated
-- adMode attribute considered in collections
+### v5.9.85
+- reporting enhanced: SDK version added to events
+- hls stream creation updated
+- new hotspot types added
+- VAST parsing improved
 
 Compiled with XCode 10.3 (Swift 5.0)
 
@@ -528,6 +529,13 @@ The player does support Airplay and PiP, if it is also supported by the device. 
 
 
 ## Changelog
+
+### v5.9.84
+- reporting improved: SDK version added to events
+- story mpde integrated
+- adMode attribute considered in collections
+
+Compiled with XCode 10.3 (Swift 5.0)
 
 ### v5.9.83
 - reporting improved
