@@ -2,11 +2,12 @@
 
 ## Latest version
 
-### v5.9.85
-- reporting enhanced: SDK version added to events
-- hls stream creation updated
-- new hotspot types added
-- VAST parsing improved
+### v5.9.86
+- player skin improvements
+- reporting enhanced
+- ad reporting enhanced
+- dailyMe SDK dependency removed
+- advertisement URL creation updated
 
 Compiled with XCode 10.3 (Swift 5.0)
 
@@ -25,12 +26,16 @@ Compiled with XCode 10.3 (Swift 5.0)
 
 #### 3rd party frameworks
 
-nexxPLAY contains presenting video ads via the Google IMA SDK and from v5.9.73 also the possiblity to download media files in order to watch videos when the device is offline. Therefore two additional SDKs need to be added to the project:
+nexxPLAY contains presenting video ads via the Google IMA SDK. Therefore the additional SDK need to be added to the project:
 
 - GoogleInteractiveMediaAds.framework (please download v3.9.0 from https://developers.google.com/interactive-media-ads/docs/sdks/ios/download)
-- DailymeSdk.framework (available in this repository)
 
 Please drag these frameworks into the "Embedded Binaries" section of your target (exactely as explained for the nexxPLAY framework in steps 1 and 2) and make sure they also appear in the "Linked Frameworks and Libraries" section (nexxPLAY integration step 3).
+
+##### IMPORTANT
+
+Since v5.9.86 of the nexxPLAY framework, offline features are not supported anymore. Hence the DailyMe SDK is not needed in that and the following versions!
+
 
 ### Code samples
 
@@ -529,6 +534,14 @@ The player does support Airplay and PiP, if it is also supported by the device. 
 
 
 ## Changelog
+
+### v5.9.85
+- reporting enhanced: SDK version added to events
+- hls stream creation updated
+- new hotspot types added
+- VAST parsing improved
+
+Compiled with XCode 10.3 (Swift 5.0)
 
 ### v5.9.84
 - reporting improved: SDK version added to events
