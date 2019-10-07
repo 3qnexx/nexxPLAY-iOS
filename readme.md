@@ -2,14 +2,11 @@
 
 ## Latest version
 
-### v5.9.86
-- player skin improvements
-- reporting enhanced
-- ad reporting enhanced
-- dailyMe SDK dependency removed
-- advertisement URL creation updated
+### v5.9.87
+- Google IMA SDK update
+- reporting enhanced: contextReference can be set by a public function and will be sent with every event
 
-Compiled with XCode 10.3 (Swift 5.0)
+Compiled with XCode 11.0 (Swift 5.1)
 
 ## Integration
 
@@ -28,7 +25,7 @@ Compiled with XCode 10.3 (Swift 5.0)
 
 nexxPLAY contains presenting video ads via the Google IMA SDK. Therefore the additional SDK need to be added to the project:
 
-- GoogleInteractiveMediaAds.framework (please download v3.9.0 from https://developers.google.com/interactive-media-ads/docs/sdks/ios/download)
+- GoogleInteractiveMediaAds.framework (please download v3.10.1 from https://developers.google.com/interactive-media-ads/docs/sdks/ios/download)
 
 Please drag these frameworks into the "Embedded Binaries" section of your target (exactely as explained for the nexxPLAY framework in steps 1 and 2) and make sure they also appear in the "Linked Frameworks and Libraries" section (nexxPLAY integration step 3).
 
@@ -534,6 +531,15 @@ The player does support Airplay and PiP, if it is also supported by the device. 
 
 
 ## Changelog
+
+### v5.9.86
+- player skin improvements
+- reporting enhanced
+- ad reporting enhanced
+- dailyMe SDK dependency removed
+- advertisement URL creation updated
+
+Compiled with XCode 10.3 (Swift 5.0)
 
 ### v5.9.85
 - reporting enhanced: SDK version added to events
