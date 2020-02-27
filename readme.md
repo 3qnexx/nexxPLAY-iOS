@@ -2,11 +2,13 @@
 
 ## Latest version
 
-### v5.9.87
-- Google IMA SDK update
-- reporting enhanced: contextReference can be set by a public function and will be sent with every event
+### v5.9.88
+- reporting enhanced
+- new cdn types added
+- api update
+- media url creation enhanced
 
-Compiled with XCode 11.0 (Swift 5.1)
+Compiled with XCode 11.3.1 (Swift 5.1)
 
 ## Integration
 
@@ -531,6 +533,12 @@ The player does support Airplay and PiP, if it is also supported by the device. 
 
 
 ## Changelog
+
+### v5.9.87
+- Google IMA SDK update
+- reporting enhanced: contextReference can be set by a public function and will be sent with every event
+
+Compiled with XCode 11.0 (Swift 5.1)
 
 ### v5.9.86
 - player skin improvements
