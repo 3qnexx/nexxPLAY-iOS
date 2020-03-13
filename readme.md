@@ -2,10 +2,9 @@
 
 ## Latest version
 
-### v5.9.88
+### v5.9.89
 - reporting enhanced
-- new cdn types added
-- api update
+- interface methods added: startPlayByGlobalID() and startPlayByForeignReference()
 - media url creation enhanced
 
 Compiled with XCode 11.3.1 (Swift 5.1)
@@ -533,6 +532,14 @@ The player does support Airplay and PiP, if it is also supported by the device. 
 
 
 ## Changelog
+
+### v5.9.88
+- reporting enhanced
+- new cdn types added
+- api update
+- media url creation enhanced
+
+Compiled with XCode 11.3.1 (Swift 5.1)
 
 ### v5.9.87
 - Google IMA SDK update
