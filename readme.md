@@ -2,10 +2,9 @@
 
 ## Latest version
 
-### v5.9.89
-- reporting enhanced
-- interface methods added: startPlayByGlobalID() and startPlayByForeignReference()
-- media url creation enhanced
+### v5.9.90
+- internal renaming
+- interface method renamed: startPlayByForeignReference() is now startByRemoteMedia
 
 Compiled with XCode 11.3.1 (Swift 5.1)
 
@@ -533,6 +532,13 @@ The player does support Airplay and PiP, if it is also supported by the device. 
 
 ## Changelog
 
+### v5.9.89
+- reporting enhanced
+- interface methods added: startPlayByGlobalID() and startPlayByForeignReference()
+- media url creation enhanced
+
+Compiled with XCode 11.3.1 (Swift 5.1)
+
 ### v5.9.88
 - reporting enhanced
 - new cdn types added
@@ -599,84 +605,3 @@ Compiled with XCode 10.2.1 (Swift 5.0)
 - reporting enhanced
 
 Compiled with XCode 10.2.1 (Swift 5.0)
-
-### v5.9.79
-- UI and UX improvements
-- public method setLanguage() added
-- automatically start PiP when app is moved to background, stop PiP on app resume
-
-Compiled with XCode 10.1 (Swift 4.2)
-
-### v5.9.78
-- getMediaData() also works after error notifications now
-- offline improvements
-- revolver play improvements
-
-Compiled with XCode 10.1 (Swift 4.2)
-
-### v5.9.77
-- URL encoding enhanced
-- CMAF support added
-- Hotspots enhanced
-- Exit preview added
-
-Compiled with XCode 10.1 (Swift 4.2)
-
-### v5.9.76
-- URL encoding enhanced
-- exit reporting added
-- public method getMediaData() enhanced
-- Seekbar image preview improved
-
-Compiled with XCode 10 (Swift 4.2)
-
-### v5.9.75
-- URL encoding enhanced
-- Information to the user when the device is offline while streaming
-- Simple hotspot support added
-
-Compiled with XCode 10 (Swift 4.2)
-
-### v5.9.74
-- Reporting improved
-- Showing thumbs (if available) when seeking through the media with a pan gesture
-- support for bumper added
-
-Compiled with XCode 9.4.1 (Swift 4.1)
-
-### v5.9.73
-- Reporting improved
-- download2go added to nexxPLAY
-
-Compiled with XCode 9.4.1 (Swift 4.1)
-
-### v5.9.72
-- Reporting improved
-- Google IMA improvement for midrolls
-- Age restriction info screen added
-- New seek icon options
-
-Compiled with XCode 9.4.1 (Swift 4.1)
-
-### v5.9.71
-- Ad reporting enhanced
-- Age restriction UI added
-- Reporting enhanced
-
-Compiled with XCode 9.4.1 (Swift 4.1)
-
-### v5.9.70
-- Google IMA update bugfixes
-- Ad reporting enhanced
-- Some public methods simplified
-
-Compiled with XCode 9.4.1 (Swift 4.1)
-
-
-
-
-
-
-
-
-
