@@ -203,6 +203,12 @@ Hide the watermark image with this method.
 #### startPlay(sessionID:String, client:String, playmode:String, param:String, startPosition:Int = 0, startItem:Int = 0)
 Initial method to get the client data, ad data and video data. The attributes `startPosition` and `startItem` are optional.
 
+#### startPlayWithGlobalID(sessionID:String, client:String, globalID:String, startPosition:Int = 0, startItem:Int = 0)
+Initial method to get the client data, ad data and video data via a global ID. The attributes `startPosition` and `startItem` are optional.
+
+#### startPlayWithRemoteMedia(sessionID:String, client:String, playmode:String, reference:String, provider:String, startPosition:Int = 0, startItem:Int = 0)
+Initial method to get the client data, ad data and video data of a remote media. The attributes `startPosition` and `startItem` are optional.
+
 #### swap(param:String)
 This method changes the video ID, thus the player will load the necessary information about the new video and restart with the new data
 
