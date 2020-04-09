@@ -47,8 +47,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() { 
         super.viewDidLoad()
         let player = NexxPLAYView(frame: CGRect(x: 0, y: 0, width: 300, height: 300)) view.addSubview(v_player)
-        player.setEnvironment(NexxPLAYEnvironment(client: "484"))
-        player.startPlay(streamType: "video", mediaID: "1662597", configuration: NexxPLAYConfiguration())
+        player.setEnvironment(NexxPLAYEnvironment(client: "1"))
+        player.startPlay(streamType: "video", mediaID: "12345", configuration: NexxPLAYConfiguration())
     }
 }
 ```
@@ -198,7 +198,7 @@ Returns details about the current video as a dictionary. These details contain:
 * `mediaSessionParent` The parent id of the current video     
 * `currentDuration` The duration the player is playing. Can be different to currentTime if the user skips seconds or jumps to other timestamps     
 * `currentTime` The current timestamp of the playing video     
-* `streamType` The stream type (_live_ oder _video_)     
+* `streamType` The stream type     
 * `isAutoPlay` Defining whether the video was started automatically (_1_ or _0_)
 
 If there is no current video, the method returns an empty dictionary. If the dictionary is not empty, the attributes mediaID, hash and title are set. All other attributes are optional and may not be available.
