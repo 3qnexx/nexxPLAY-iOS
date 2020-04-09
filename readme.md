@@ -2,11 +2,12 @@
 
 ## Latest version
 
-### v5.9.90
-- internal renaming
-- interface method renamed: startPlayByForeignReference() is now startByRemoteMedia
+### v6.0.0
+- intreface rewrite
+- minor UI updates
+- media URL creation enhanced
 
-Compiled with XCode 11.3.1 (Swift 5.1)
+Compiled with XCode 11.4 (Swift 5.2)
 
 ## Integration
 
@@ -33,12 +34,9 @@ Please drag these frameworks into the "Embedded Binaries" section of your target
 
 Since v5.9.86 of the nexxPLAY framework, offline features are not supported anymore. Hence the DailyMe SDK is not needed in that and the following versions!
 
-
 ### Code samples
 
 #### Adding a player instance
-
-##### Swift
 
 ```swift
 import UIKit
@@ -48,175 +46,90 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() { 
         super.viewDidLoad()
-        let v_player = PlayerView(frame: CGRect(x: 0, y: 0, width: 300, height: 300)) view.addSubview(v_player)
-        //possible predefinitions v_player.overrideMidroll(“http://vastURL”, interval:5) v_player.overrideAutoPlay(true)
-        v_player.startPlay("0", client: "571", playmode: "single", param: "40164") 
+        let player = NexxPLAYView(frame: CGRect(x: 0, y: 0, width: 300, height: 300)) view.addSubview(v_player)
+        player.setEnvironment(NexxPLAYEnvironment(client: "484"))
+        player.startPlay(streamType: "video", mediaID: "1662597", configuration: NexxPLAYConfiguration())
     }
 }
-```
-
-##### Objective C
-
-```objective-c
-#import "ViewController.h" #import <nexxPlay/nexxPlay.h>
-
-@interface ViewController () @end
-
-@implementation ViewController
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-
-    // Do any additional setup after loading the view, typically from a nib.
-    PlayerView* view = [[PlayerView alloc] initWithFrame:CGRectMake(0.0, 0.0, 300.0, 300.0)];
-    [self.view addSubview:view];
-    //possible predefinitions
-    [v_player overrideMidroll:@“http://vastURL” interval:5]; [v_player overrideAutoPlay:YES];
-    [view startPlay:@"0" client:@"571" playmode:@"single" param:@"40164" startPosition:0 startItem:0];
-}
-
-@end
 ```
 
 #### removing a player instance
 
 As soon as the PlayerView is deallocated, the player will automatically stop.
 
+## Environment
+
+The NexxPLAYEnvironment object contains global settings for the player object. Except for the `client` all the settings are optional and have a predefined value. The settings are:
+
+•    `client:String` = the ID of the client (mandatory)
+•    `sessionID:String` = the ID of the current session (default is "0")
+•    `language:String?` = an override for the system language to get language specific data from the backend (e.g. "en")
+•    `userHash:String` = the hash of the current user (default is "")
+•    `affiliatePartner:Int` = the ID of the affiliate partner regarding the tracking (default is 0)
+•    `playLicensePartner:Int` = the ID of the play license partner for the backend (default is 0)
+•    `contextReference:String` = the context reference for reporting (default is "")
+•    `foceSSL:Bool` = defines whether URLs are created with SSL (defualt is true)
+•    `trackingOptOuted:Bool` = defines whether tracking is allowed or not (default is false)
+•    `cordovaEnabled:Bool` = set this option to true if you run the SDK in a cordova app (default is false)
+•    `alwaysInFullscreen:Bool` = tell the SDK whether you show the player in fullscreen or not (defualt is false)
+•    `showCloseButtonOnFullscreen:Bool` = defines whether to show the close button in fullscreen mode or not (default is true)
+•    `googleIMAReferenceViewController:UIViewController?` = the Google IMA SDK presents the advertisement modally on a UIViewController once the user taps the video ad. If the Google IMA SDK is used but no view controller is set, the advertisement will open in Safari (default is `nil`)
+
+## Configuration
+
+The NexxPLAYConfiguration object contains settings regarding the player UI and behaviour. All the settings are optional and have a predefined value. The settings object will be set via the various `startPlay` methods. The settings are:
+
+•    `dataMode:String` = can be "api" or "static" (defualt is "api")
+•    `backgroundColor:UIColor` = defines the background color of the player if the background is visible due to the media format (defualt is black)
+•    `loaderSkin:String` = defines the loading animation, can be "default" or "doublebounce" (default is "default")
+•    `hidePrevNext:Int` = overrides the visiblity of the previous and next buttons for lists (default is 0, can be 0 or 1)
+•    `autoPlay:Int` = if set to 0 or 1, the API information will be overwritten and the media starts automatically (1) or not (0) (default is -1)
+•    `autoNext:Int` = if set to 0 or 1, the API information will be overwritten and the player shows the next media elements (1) or not (0) after the media stopped (default is -1)
+•    `exitMode:String` = overrides the APIs exitMode after the video. The different modes are "replay" (no exit page, only a replay button in the center), "navigate" (presents an exit page), "playlist" ( nothing is shown) (default is "")
+•    `titleMode:Int` = overrides the APIs mode of the video titles. The titles can be hidden (0), always visible (1) or only visible when the player is fullscreen (2) (default is -1)
+•    `menuMode:Int` = overrides the APIs setting defining whether the menu is never visible (0), visible on tap (1) or always visible (2) (default is -1)
+•    `captionMode:String` = overrides the APIs caption mode for the player. Possible values are "none", "select", "selectandstart" and "always" (default is "")
+•    `watermarkMode:Int` = overrides the APIs setting to show(1) or hide(1) the watermarks (default is -1)
+•    `delay:Double` = start the media at a specific spot (default is 0)
+•    `startPosition:Int` = start a playlist at a specific index (default is 0)
+•    `adProvider:String` = overrides the APIs ad provider setting (default is "")
+•    `adType:String` = overrides the APIs ad type setting (default is "")
+•    `adPrerollURL:String` = overrides the APIs ad preroll URL (default is "")
+•    `adMidrollURL:String` = overrides the APIs ad midroll URL (default is "")
+•    `adPostrollURL:String` = overrides the APIs ad postroll URL (default is "")
+•    `adBannerURL:String` = overrides the APIs ad banner URL (default is "")
+•    `adMidrollInterval:Int` = overrides the APIs ad midroll intervall setting (default is -1)
+•    `adBannerInterval:Int` = overrides the APIs ad banner intervall setting (default is -1)
+•    `disableAds:Int` = overrides the APIs setting to disable all ads if set to 1 (default is 0)
+•    `disablePrerolls:Int` = overrides the APIs setting to disable preroll ads if set to 1 (default is 0)
+•    `disableMidrolls:Int` = overrides the APIs setting to disable midroll ads if set to 1 (default is 0)
+•    `disablePostrolls:Int` = overrides the APIs setting to disable postroll ads if set to 1 (default is 0)
+•    `disableBanners:Int` = overrides the APIs setting to disable banner ads if set to 1 (default is 0)
+•    `enableInteractions:Int` = if set to 0, several sidebar buttons are disabled (default is 1)
+•    `enableScenes:Int` = if set to 0, the scene selection will not be shown in the sidebar (default is 1)
+•    `enableSidebar:Int` = if set to 0, the sidebar will not be shown (default is 1)
+•    `enableAirPlay:Int` = overrides the APIs setting to show(1) or hide(1) the airplay option (default is -1)
+•    `enableFullscreen:Int` = if set to 0, the fullscreen button will not be shown (default is 1)
+•    `enableAutoResume:Int` = if set to 0, the auto resume feature is disabled (default is 1)
+•    `webURLReference:Int` = set the web reference for reporting
+•    `streamingFilter:String` = overrides the APIs streaming filter (default is "")
+•    `startedVia:String` = overrides session call reason for reporting (default is "")
+
 ## Public methods
 
-The following methods can be called prior to the initial method `startPlay()` in order to predefine information for the player. In case the backend also provides this information when calling `startPlay()`, only the information that was not provided before `startPlay()` is used from the backend.
+The following methods can be used to start and control the player:
 
-### VAST presets
+#### setEnvironment(environment:NexxPLAYEnvironment)
+Sets the environment object for the player. This method __must__ be called before any start method is called
 
-#### overridePreroll(url:String) 
-Sets the URL for the VAST preroll.
+#### startPlay(streamType:String, mediaID:String, configuration:NexxPLAYConfiguration)
+Initial method to get the client data, ad data and video data
 
-#### overrideMidroll(url:String, interval:Int) 
-Sets the URL and time interval (minutes) for the VAST midroll. 
+#### startPlayWithGlobalID(globalID:String, configuration:NexxPLAYConfiguration)
+Initial method to get the client data, ad data and video data via a global ID
 
-#### overrideBanner(url:String, interval:Int)
-Sets the URL and time interval (minutes) for the VAST banner roll.
-
-#### overridePostroll(url:String) 
-Sets the URL for the VAST postroll
-
-#### overrideAdProvider(provider:String) 
-Sets the ad provider. 
-
-#### overrideAdType(adType:String) 
-The different values for ad type can be `vast` and `ima`, `vast` is set as default parameter. In case you want to use the Google IMA SDK to play video ads, override the default setting with `ima`.
-
-#### overrideVASTData(provider:String, prerollURL:String, midrollURL:String, midrollInterval:Int ,bannerURL:String, bannerInterval:Int,postRollURL:String, adType:String) 
-Sets all VAST information for the player.
-
-### Other player presets
-
-#### overrideMenu(visibility:Int)
-Updates the setting defining whether the menu is never visible (0), visible on tap (1) or always visible(2)
-
-#### overrideAutoPlay(autoPlayMode:Bool)
-Updates the setting defining whether videos should start automatically
-
-#### overrideExitMode(exitMode:String)
-Updates the exitMode after the video. The different modes are:
-•    `replay`: no exit page, only a replay button in the center
-•    `navigate`: presents an exit page
-•    `playlist`: nothing is shown
-
-#### overrideAutoNext(autoNext:Bool)
-Updates the setting defining whether the next video should start automatically after some seconds
-
-#### setPlayerBackgroundColor(backgroundColor:String)
-Updates the background color of the player. The default color is black. Please enter the color as a 6 digit hex value (e.g. white is `ffffff`).
-
-#### setDelay(delay:Int)
-Defines the start position of the video (in seconds).
-
-#### overrideTitles(visibility:Int)
-Defines the visibility of the video titles. The titles can be hidden (0), always visible (1) or only visible when the player is fullscreen (2).
-
-#### addObserverForAllNotifications(observer:AnyObject, selector:String)
-Convenience function to add an observer on all notifications the player will send. Whenever a notification is sent by the player, the function defined by selector is called on observer. For more information see [Notifications](#Notifications).
-
-#### removeObserverForAllNotifications(observer:AnyObject)
-Convenience function to remove an observer on all notifications the player will send. 
-
-#### enableCordova() 
-If the player is used in a cordova app, this method must be called before start play to enable cordova specific features.
-
-#### clearCache() 
-The data received by the nexxPlay API is cached for 30 minutes. Call this method to clear the cache manually. 
-
-#### setDatamode(datamode:String) 
-By default, the video data is received from the API. If your set the data mode to `static`, instead a static url is called to receive all the necessary data.
-
-#### setGoogleIMAReferenceViewController(viewController:UIViewController) 
-The Google IMA SDK presents the advertisement modally on a UIViewController once the user taps the video ad. If the Google IMA SDK is used but no view controller is set, the advertisement will open in Safari.
-
-#### setWerbURLRepresentation(url:String) 
-In case any of the VAST urls contains the placeholder `(page.host)`, the given string will replace it.
-
-#### setViewParentID(mode:String) 
-Sets the parent ID for playlists in order to add references for the reporting.
-
-#### setPlayLicense(playLicense:Int) 
-Use this method if you want to group videos coming from the same domain ID.
-
-#### setLoaderSkin(skin:String) 
-Changes the default loading skin. Possible values are:
-•    `default`: the default loading skin. If you want to use this skin, you don’t need to call this method
-•    `doublebounce`
-
-#### setSessionCallReason(reason:String) 
-Use this method if you want to set a reason how the player was opened (for reporting).
-
-#### setDeviceID(deviceID:String) 
-Use this method if you want to manually set the deviceID for reporting. Otherwise the player will create a deviceID.
-
-#### setStreamingFilter(filter:String) 
-Use this method if you want to exclude quality tracks from your stream.
-
-#### setUserHash(userHash:String) 
-Use this method if you have a logged in user with which you want to start your session.
-
-#### overrideCaptionMode(mode:String) 
-Use this method to override the caption mode for the player. Possible values are:
-•    `none`
-•    `select`
-•    `selectandstart`
-•    `always`
-
-#### disableAds(disablePre:Bool, disableMid:Bool, disableBanner:Bool, disablePost:Bool) 
-Use this method to override any ad definitions yet set in the player.
-
-#### setSSL(useSSL:Bool) 
-Use this method to define whether api and media URLs should be created with or without SSL.
-
-#### disableWatermark() 
-Hide the watermark image with this method.
-
-
-
-
-### Controlling the player
-
-#### startPlay(sessionID:String, client:String, playmode:String, param:String, startPosition:Int = 0, startItem:Int = 0)
-Initial method to get the client data, ad data and video data. The attributes `startPosition` and `startItem` are optional.
-
-#### startPlayWithGlobalID(sessionID:String, client:String, globalID:String, startPosition:Int = 0, startItem:Int = 0)
-Initial method to get the client data, ad data and video data via a global ID. The attributes `startPosition` and `startItem` are optional.
-
-#### startPlayWithRemoteMedia(sessionID:String, client:String, playmode:String, reference:String, provider:String, startPosition:Int = 0, startItem:Int = 0)
-Initial method to get the client data, ad data and video data of a remote media. The attributes `startPosition` and `startItem` are optional.
-
-#### swap(param:String)
-This method changes the video ID, thus the player will load the necessary information about the new video and restart with the new data
-
-#### swapToPos(newParam:String)
-In case the player currently plays a playlist, it will switch to the video with the provided ID (newParam)
-
-#### swapComplex(playMode:String, param:String, startPosition:Int = 0, startItem:Int = 0)
-Like `swap()` this method changes the video ID but also lets you define a new playmode as well as the first item to be played (for playlists) and the position, the video is started from (in seconds). The attributes `startPosition` and `startItem` are optional.
+#### startPlayWithRemoteMedia(streamType:String, reference:String, provider:String, configuration:NexxPLAYConfiguration)
+Initial method to get the client data, ad data and video data of a remote media
 
 #### play()
 The player starts/continues playing.
@@ -224,16 +137,40 @@ The player starts/continues playing.
 #### pause()
 The player pauses.
 
+#### toggle()
+The player pauses if playing, otherwise starts.
+
 #### mute()
 The player is muted.
 
 #### unmute()
 The player is unmuted.
 
-#### seek(time:Int)
-The current video is set to the defined position (in seconds).
+#### seekTo(time:Float)
+The current media is set to the defined position (in seconds).
 
-#### getMediaData(getEnhanced:Bool) -> [String:String]
+#### seekBy(time:Float)
+The current media seeked by the defined time (in seconds).
+
+#### next()
+The player plays the next media in a list.
+
+#### previous()
+The player plays the previous media in a list.
+
+#### swapToPosition(position:Int)
+The player switches to the media at the defined position in a list.
+
+#### swapToMediaItem(mediaID:String, streamType:String? = nil,  startPosition:Int = 0, delay:Double = 0) 
+The player reloads the media data and plays the new data.
+
+#### swapToGlobalID(globalID:String, startPosition:Int = 0, delay:Double = 0) 
+The player reloads the media data given a global ID and plays the new data.
+
+#### swapToRemoteMedia(reference:String, provider:String, delay:Double = 0) 
+The player reloads the media data given a remote referenc and plays the new data.
+
+#### getMediaData() -> [String:String] 
 Returns details about the current video as a dictionary. These details contain:
 * `mediaID` The id of the current media   
 * `mediaDomain` The domain of the current media    
@@ -257,37 +194,35 @@ Returns details about the current video as a dictionary. These details contain:
 * `isStitched` static value (0)      
 * `isPresentation` static value (0)       
 * `currentAudioLanguage` The name of the current language if the media fiel supports multiple languages (optional)       
-
-If there is no current video, the method returns an empty dictionary. If the dictionary is not empty, the attributes mediaID, hash and title are set. All other attributes are optional and may not be available.
-If you set the optional getEnhanced attribute to true, you will get additional parameters:
-
 * `mediaSession` The session id of the current video      
 * `mediaSessionParent` The parent id of the current video     
 * `currentDuration` The duration the player is playing. Can be different to currentTime if the user skips seconds or jumps to other timestamps     
 * `currentTime` The current timestamp of the playing video     
 * `streamType` The stream type (_live_ oder _video_)     
-* `isAutoPlay` Defining whether the video was started automatically (_1_ or _0_)     
+* `isAutoPlay` Defining whether the video was started automatically (_1_ or _0_)
 
-#### checkPayment() 
-In case the player was automatically paused because a preview of a video was shown, this method can trigger the check for payment in case the check is positive, the player resumes the video.
+If there is no current video, the method returns an empty dictionary. If the dictionary is not empty, the attributes mediaID, hash and title are set. All other attributes are optional and may not be available.
 
-#### getCaptionData(language:String? = nil) 
+#### getCaptionData(language:String? = nil) -> [String:String]
 Use this method to retrieve the captions of a media element. If there is no current element or the element does not contain captions, this method returns nil. In case you want to get captions for a specific language, you can set the 2 digit language code as parameter.
 
-#### getCurrentTime() 
-Returns the playback time for the current media in seconds.
+#### getCurrentTime() -> Float
+The player returns the current playback time.
 
-#### disableFullscreenCloseButton() 
-If you don’t want to show the extra fullscreen close button on the top left when the player is in fullscreen, call this method.
+#### isPlaying() -> Bool 
+The player returns if a media element is currently playing
 
-#### setPlayerFullscreen() 
-In case you present the player always on the full screen of the device, call this method so there are no fullscreen buttons in the player.
+#### isPlayingAd() -> Bool 
+The player returns if an ad is currently playing
 
-#### setUserIsTrackingOptOuted() 
-If you call this method, there will be no ad tracking in the player.
+#### isMuted() -> Bool 
+The player returns if it is muted
 
-#### setLanguage(code:String)
-Use this call to set the language code in the initial API call
+#### isInPiP() -> Bool
+The player returns if it is in picture in picture mode
+
+#### clearCache()
+The data received by the nexxPlay API is cached for 30 minutes. Call this method to clear the cache manually. 
 
 ## Player notifications
 
@@ -466,20 +401,10 @@ __userInfo:__
 
 The notifications are sent by the NSNotificationCenter. To receive a notification you can use the following code snippet:
 
-##### Swift
-
 ```swift
 NSNotificationCenter.defaultCenter().addObserver(self, selector: "notificationReceived:", name: nexxPlay.nexxPlayErrorNotification, object: playerView)
 ```
-
-##### Objective-C
-
-```objective-c
-[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notificationReceived:) name:@"NexxPlayErrorNotification" object:playerView];
-```
 The appropriate function that is called when the notification is received:
-
-##### Swift
 
 ```swift
 @objc func notificationReceived(notification:NSNotification) {
@@ -491,36 +416,16 @@ The appropriate function that is called when the notification is received:
 }
 ```
 
-##### Objective-C
-
-```objective-c
-- (void)notificationReceived:(NSNotification*)notification {
-    NSLog(notification.name);
-    if ([notification.name isEqualToString:@"NexxPlayPlayPosNotification"]) {
-        if (notification.userInfo != nil) {
-        // use the additional data in userInfo
-        }
-    }
-}
-```
 If you have multiple players you can determine the player that sent the notification by checking notification.object 
 
 If you want to receive all notifications from the player, there is a convenience function:
-
-##### Swift
 
 ```swift
 playerView.addObserverForAllNotifications(observer, selector:”notificationReceived:”)
 ```
 
-##### Objective-C
-
-```objective-c
-[playerView addObserverForAllNotifications:self selector:@"notificationReceived:"];
-``` 
 Whenever a notification from playerView is received by the observer, the function `notificationReceived:` is called. With `notification.name` you can determine which notification was received and act accordingly.
                                                                                           
-
 ## Further information
 
 ### Fullscreen
@@ -537,6 +442,12 @@ The player does support Airplay and PiP, if it is also supported by the device. 
 
 
 ## Changelog
+
+### v5.9.90
+- internal renaming
+- interface method renamed: startPlayByForeignReference() is now startByRemoteMedia
+
+Compiled with XCode 11.3.1 (Swift 5.1)
 
 ### v5.9.89
 - reporting enhanced
