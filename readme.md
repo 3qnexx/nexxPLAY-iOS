@@ -2,10 +2,9 @@
 
 ## Latest version
 
-### v6.0.0
-- intreface rewrite
+### v6.0.1
 - minor UI updates
-- media URL creation enhanced
+- media URL creation for remote audio enhanced
 
 Compiled with XCode 11.4 (Swift 5.2)
 
@@ -442,6 +441,13 @@ The player does support Airplay and PiP, if it is also supported by the device. 
 
 
 ## Changelog
+
+### v6.0.0
+- intreface rewrite
+- minor UI updates
+- media URL creation enhanced
+
+Compiled with XCode 11.4 (Swift 5.2)
 
 ### v5.9.90
 - internal renaming
