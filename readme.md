@@ -2,13 +2,12 @@
 
 ## Latest version
 
-### v6.0.2
-- UI updates
-- new skin "simple" added
-- bitcode support added
-- podcast sharing added
-- reporting enhanced
-- URL creation adapted 
+### v6.0.3
+- offline mode for audio added
+- reporting adapted for offline audio
+- ad URL replacements enhanced
+- reporting event p_adnocall added
+- `getMediaData()` enhanced for offline audio, remote media and custom attributes
 
 Compiled with XCode 11.4 (Swift 5.2)
 
@@ -181,7 +180,7 @@ Returns details about the current video as a dictionary. These details contain:
 * `title` The title of the media     
 * `subtitle` The subtitle (optional)     
 * `runtime` The runtime of the media (optional)     
-* `actors` The actors (optional)     
+* `persons` The actors (optional)     
 * `channel` The channel (optional)     
 * `channel_id` The channel id (optional)     
 * `channel_adref` The channel ad reference (optional)      
@@ -203,6 +202,19 @@ Returns details about the current video as a dictionary. These details contain:
 * `currentTime` The current timestamp of the playing video     
 * `streamType` The stream type     
 * `isAutoPlay` Defining whether the video was started automatically (_1_ or _0_)
+* `format` The format of the media
+* `format_id` The raw format value of the media
+* `isRemoteMedia` states whether the media is of remote type (_1_ or _0_)
+* `remoteReference` the remote reference in case it is a remote media
+* `globalID` the global ID when the media is started via a global ID
+* `customAttributes` custom attributes in a dictionnary
+* `isStory` static value (0)
+* `isBumper` States whether it is a bumper (_1_ or _0_)
+* `isPlayingAd` States whether ads are currently played (_1_ or _0_)
+* `playReason` The reason why the media was played
+* `currentPlaybackSpeed` the current playback speed
+* `currentAudioLanguage` The currently selected audio stream
+* `isLocal` States whether the media is locally availabel
 
 If there is no current video, the method returns an empty dictionary. If the dictionary is not empty, the attributes mediaID, hash and title are set. All other attributes are optional and may not be available.
 
@@ -445,6 +457,16 @@ The player does support Airplay and PiP, if it is also supported by the device. 
 
 
 ## Changelog
+
+### v6.0.2
+- UI updates
+- new skin "simple" added
+- bitcode support added
+- podcast sharing added
+- reporting enhanced
+- URL creation adapted 
+
+Compiled with XCode 11.4 (Swift 5.2)
 
 ### v6.0.1
 - minor UI updates
