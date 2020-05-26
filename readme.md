@@ -2,14 +2,14 @@
 
 ## Latest version
 
-### v6.0.3
-- offline mode for audio added
-- reporting adapted for offline audio
-- ad URL replacements enhanced
-- reporting event p_adnocall added
-- `getMediaData()` enhanced for offline audio, remote media and custom attributes
+### v6.0.4
+- interface method `getMediaData()` now contains custom attributes if available
+- interface improved for obj-c apps
+- notifications enhanced
+- caching logic updated
+- command center seekbar enabled
 
-Compiled with XCode 11.4 (Swift 5.2)
+Compiled with XCode 11.5 (Swift 5)
 
 ## Integration
 
@@ -172,7 +172,7 @@ The player reloads the media data given a global ID and plays the new data.
 #### swapToRemoteMedia(reference:String, provider:String, delay:Double = 0) 
 The player reloads the media data given a remote referenc and plays the new data.
 
-#### getMediaData() -> [String:String] 
+#### getMediaData() -> [String:Any] 
 Returns details about the current video as a dictionary. These details contain:
 * `mediaID` The id of the current media   
 * `mediaDomain` The domain of the current media    
@@ -238,6 +238,25 @@ The player returns if it is in picture in picture mode
 
 #### clearCache()
 The data received by the nexxPlay API is cached for 30 minutes. Call this method to clear the cache manually. 
+
+### Local media
+
+Since version 6.0.3 the player also supports the download and playback of local audio files. The following interface methods are available with this feature:
+
+#### startDownloadLocalMedia(mediaID:String, streamType:String,  provider:String? = nil)
+Initiates the download of the media file, meta data and the cover.
+
+#### listLocalMedia(streamType:String)
+Lists all downloaded media files for the given streamtype.
+
+#### hasDownloadOfLocalMedia(mediaID:String, streamType:String,  provider:String? = nil) -> Bool
+Indicates whether the media with the given ID and streamtype has been successfully downloaded.
+
+#### removeLocalMedia(mediaID:String, streamType:String,  provider:String? = nil)
+Removes the media file, meta data and cover for the given ID and streamtype.
+
+#### clearLocalMedia(streamType:String? = nil)
+Removes all files for a given streamtype. If no streamtype is set, all downloaded files will be removed.
 
 ## Player notifications
 
@@ -457,6 +476,15 @@ The player does support Airplay and PiP, if it is also supported by the device. 
 
 
 ## Changelog
+
+### v6.0.3
+- offline mode for audio added
+- reporting adapted for offline audio
+- ad URL replacements enhanced
+- reporting event p_adnocall added
+- `getMediaData()` enhanced for offline audio, remote media and custom attributes
+
+Compiled with XCode 11.4 (Swift 5.2)
 
 ### v6.0.2
 - UI updates
