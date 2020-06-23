@@ -2,12 +2,15 @@
 
 ## Latest version
 
-### v6.0.4
-- interface method `getMediaData()` now contains custom attributes if available
-- interface improved for obj-c apps
-- notifications enhanced
-- caching logic updated
-- command center seekbar enabled
+### v6.0.5
+- new podcast platforms added
+- new playmode _radio_ added
+- notifcations enhanced
+- new notification `NexxPlayShowHotspotNotification`
+- IMPORTANT: the NexxPLAYEnvironment attribute `client` has been changed to `domain`
+- new NexxPLAYConfiguration attributes `titleColor`, `subtitleColor` and `seekbarColor`
+- Notifications renamed: `NexxPlayEnterFullscreenNotification`, `NexxPlayExitFullscreenNotification`, `NexxPlayCloseFullscreenNotification`, `NexxPlayEnterPIPNotification`, `NexxPlayExitPIPNotification`, `NexxPlayExitRemoteNotification`, `NexxPlayEnterRemoteNotification`
+- the notification `NexxPlayFullscreenCloseNotification` has been removed. In case you start the player with `NexxPLAYEnvironment.alwaysInFullscreen` set to _true_, you will receive the notification `NexxPlayExitFullscreen` with additional information when the close button has been tapped 
 
 Compiled with XCode 11.5 (Swift 5)
 
@@ -49,7 +52,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() { 
         super.viewDidLoad()
         let player = NexxPLAYView(frame: CGRect(x: 0, y: 0, width: 300, height: 300)) view.addSubview(v_player)
-        player.setEnvironment(NexxPLAYEnvironment(client: "1"))
+        player.setEnvironment(NexxPLAYEnvironment(domain: "1"))
         player.startPlay(streamType: "video", mediaID: "12345", configuration: NexxPLAYConfiguration())
     }
 }
@@ -61,9 +64,9 @@ As soon as the PlayerView is deallocated, the player will automatically stop.
 
 ## Environment
 
-The NexxPLAYEnvironment object contains global settings for the player object. Except for the `client` all the settings are optional and have a predefined value. The settings are:
+The NexxPLAYEnvironment object contains global settings for the player object. Except for the `domain` all the settings are optional and have a predefined value. The settings are:
 
-•    `client:String` = the ID of the client (mandatory)                 
+•    `domain:String` = the ID of the domain (mandatory)                 
 •    `sessionID:String` = the ID of the current session (default is "0")                 
 •    `language:String?` = an override for the system language to get language specific data from the backend (e.g. "en")                 
 •    `userHash:String` = the hash of the current user (default is "")                 
@@ -76,13 +79,17 @@ The NexxPLAYEnvironment object contains global settings for the player object. E
 •    `alwaysInFullscreen:Bool` = tell the SDK whether you show the player in fullscreen or not (defualt is false)                 
 •    `showCloseButtonOnFullscreen:Bool` = defines whether to show the close button in fullscreen mode or not (default is true)                 
 •    `googleIMAReferenceViewController:UIViewController?` = the Google IMA SDK presents the advertisement modally on a UIViewController once the user taps the video ad. If the Google IMA SDK is used but no view controller is set, the advertisement will open in Safari (default is `nil`)                 
+•    `consentString:String` = replaces _{session.consentstring}_ in advertisement URLs
 
 ## Configuration
 
 The NexxPLAYConfiguration object contains settings regarding the player UI and behaviour. All the settings are optional and have a predefined value. The settings object will be set via the various `startPlay` methods. The settings are:
 
 •    `dataMode:String` = can be "api" or "static" (defualt is "api")                 
-•    `backgroundColor:UIColor` = defines the background color of the player if the background is visible due to the media format (defualt is black)                 
+•    `backgroundColor:UIColor` = defines the background color of the player if the background is visible due to the media format (defualt is black)  
+•    `titleColor:UIColor` = an override for the textcolor of the title
+•    `subtitleColor:UIColor` = an override for the textcolor of the subtitle
+•    `seekbarColor:UIColor` = an override for the seekbar color
 •    `loaderSkin:String` = defines the loading animation, can be "default" or "doublebounce" (default is "default")                 
 •    `hidePrevNext:Int` = overrides the visiblity of the previous and next buttons for lists (default is 0, can be 0 or 1)                 
 •    `autoPlay:Int` = if set to 0 or 1, the API information will be overwritten and the media starts automatically (1) or not (0) (default is -1)                 
@@ -125,13 +132,13 @@ The following methods can be used to start and control the player:
 Sets the environment object for the player. This method __must__ be called before any start method is called
 
 #### startPlay(streamType:String, mediaID:String, configuration:NexxPLAYConfiguration)
-Initial method to get the client data, ad data and video data
+Initial method to get the domain data, ad data and video data
 
 #### startPlayWithGlobalID(globalID:String, configuration:NexxPLAYConfiguration)
-Initial method to get the client data, ad data and video data via a global ID
+Initial method to get the domain data, ad data and video data via a global ID
 
 #### startPlayWithRemoteMedia(streamType:String, reference:String, provider:String, configuration:NexxPLAYConfiguration)
-Initial method to get the client data, ad data and video data of a remote media
+Initial method to get the domain data, ad data and video data of a remote media
 
 #### play()
 The player starts/continues playing.
@@ -260,7 +267,16 @@ Removes all files for a given streamtype. If no streamtype is set, all downloade
 
 ## Player notifications
 
-To observe the player’s behaviour the framework provides multiple notifications for the application. Some notifications contain additional data in the userInfo dictionary. The different notifications and how to receive them is described below
+To observe the player’s behaviour the framework provides multiple notifications for the application. Some notifications contain additional data in the userInfo dictionary. The basic userInfo every notification contains is:
+
+* `isMuted` : Whether the player is currently muted or not (1 or 0)
+* `isStory` : 0
+* `isBumper` : Whether the current media is a bumper or not (1 or 0)
+* `isPreview` : Whether the player is in preview mode or not (1 or 0)
+* `isSceneSplit` : 0
+* `isRemote` : Whether the media is remote or not (1 or 0)
+
+The different notifications and how to receive them is described below.
 
 ### Notifications
 
@@ -335,14 +351,15 @@ __userInfo:__
 ##### nexxPlayPayPreviewEndedNotification
 If the video is shown in preview mode and the preview minutes are over.
 
-##### nexxPlayFullscreenCloseNotification
+##### nexxPlayCloseFullscreenNotification
 If the player is used in combination with cordova and the user presses the close button (only available when cordova is enabled).
 
 ##### nexxPlayMetaDataLoadedNotification
 Every time the meta data for a video is loaded.     
 __userInfo:__    
-* `orientation` : the media orientation, for audio streams “none”     
+* `orientation` : the media orientation, for audio streams the value is “none”     
 * `hasAudio` : 1 if the media  has audio, 0 otherwise
+* `aspectRatio`: the aspect ratio of the media, for audio streams the value is "none"
 
 ##### nexxPlayShowUINotification 
 Every time the player controls become visible.
@@ -350,11 +367,14 @@ Every time the player controls become visible.
 ##### nexxPlayHideUINotification 
 Every time the player controls will hide.
 
-##### nexxPlayFullscreenEnteredNotification 
+##### nexxPlayEnterFullscreenNotification 
 Every time the player enters fullscreen.
 
-##### nexxPlayFullscreenExitedNotification 
+##### nexxPlayExitFullscreenNotification 
 Every time the player exits the fullscreen mode.
+__userInfo:__    
+* `shouldClosePlayer` : indication whether the player should be closed by its parent. Usually _true_ when the player has environment.alwaysInFullscreen set to _true_
+* `reason` : in case the player has environment.alwaysInFullscreen set to _true_ and should be closed the reason why it should be closed (either _error_  or _exit_ )
 
 ##### nexxPlayProgress25Notification, nexxPlayProgress50Notification, nexxPlayProgress75Notification, nexxPlayProgress95Notification
 Every time the video duration reaches 25%, 50%, 75% and 95% of its length.
@@ -378,21 +398,21 @@ __userInfo:__
 ##### nexxPlayStartSessionNotification 
 The player has been assigned a session ID.
 
-##### nexxPlayPIPEnteredNotification 
+##### nexxPlayEnterPIPNotification 
 The video is presented via picture in picture.
 
-##### nexxPlayPIPExitedNotification 
+##### nexxPlayExitPIPNotification 
 The picture in picture media presentation stopped.
 
 ##### nexxPlayStartSessionNotification 
 Picture in picture did stop and the video is presented in the application.
 
-##### nexxPlayRemoteEnteredNotification 
+##### nexxPlayEnterRemoteNotification 
 The video is presented via airplay on an external device.    
 __userInfo:__    
 * `device` : “airplay”
 
-##### nexxPlayRemoteExitedNotification 
+##### nexxPlayExitRemoteNotification 
 Airplay is stopped and the video is presented by the application.    
 __userInfo:__    
 * `device` : “airplay”
@@ -430,6 +450,9 @@ __userInfo:__
 * `item` : media ID
 * `title`: title of the media
 * `error`: the error description
+
+##### NexxPlayShowHotspotNotification
+The link of a hotspot has been tapped and reported
 
 ### Observing notifications
 
@@ -476,6 +499,15 @@ The player does support Airplay and PiP, if it is also supported by the device. 
 
 
 ## Changelog
+
+### v6.0.4
+- interface method `getMediaData()` now contains custom attributes if available
+- interface improved for obj-c apps
+- notifications enhanced
+- caching logic updated
+- command center seekbar enabled
+
+Compiled with XCode 11.5 (Swift 5)
 
 ### v6.0.3
 - offline mode for audio added
