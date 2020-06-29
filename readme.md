@@ -2,15 +2,14 @@
 
 ## Latest version
 
-### v6.0.5
-- new podcast platforms added
-- new playmode _radio_ added
-- notifcations enhanced
-- new notification `NexxPlayShowHotspotNotification`
-- IMPORTANT: the NexxPLAYEnvironment attribute `client` has been changed to `domain`
-- new NexxPLAYConfiguration attributes `titleColor`, `subtitleColor` and `seekbarColor`
-- Notifications renamed: `NexxPlayEnterFullscreenNotification`, `NexxPlayExitFullscreenNotification`, `NexxPlayCloseFullscreenNotification`, `NexxPlayEnterPIPNotification`, `NexxPlayExitPIPNotification`, `NexxPlayExitRemoteNotification`, `NexxPlayEnterRemoteNotification`
-- the notification `NexxPlayFullscreenCloseNotification` has been removed. In case you start the player with `NexxPLAYEnvironment.alwaysInFullscreen` set to _true_, you will receive the notification `NexxPlayExitFullscreen` with additional information when the close button has been tapped 
+### v6.0.6
+- new configuration attribute `forcePrevNext`
+- new notifications `NexxPlayPlayerAddedNotification`, `NexxPlayChangeMediaNotification`, `NexxPlayChangePlayPosNotification`, `NexxPlayChangeMediaIntentNotification`
+- Objective C adaptions to better access notification names
+- notification `NexxPlayNotificationExitFullscreen` enhanced
+- live URL creation enhanced
+- media control center features enhanced
+- playmode `articleaudio` added
 
 Compiled with XCode 11.5 (Swift 5)
 
@@ -123,6 +122,7 @@ The NexxPLAYConfiguration object contains settings regarding the player UI and b
 •    `webURLReference:Int` = set the web reference for reporting                 
 •    `streamingFilter:String` = overrides the APIs streaming filter (default is "")                                  
 •    `startedVia:String` = overrides session call reason for reporting (default is "")                 
+•    `forcePrevNext:Int` = if this attribute is set to 1, the player shows the previous/next track buttons although there is a single media. in case one of the buttons is pressed, the new notification `NexxPlayChangeMediaIntentNotification` is sent        
 
 ## Public methods
 
@@ -347,7 +347,6 @@ __userInfo:__
 * `mode` : The adMode, “ima” or “vast”      
 * `type` : “preroll”, “midroll”, “banner” or “postroll”
 
-
 ##### nexxPlayPayPreviewEndedNotification
 If the video is shown in preview mode and the preview minutes are over.
 
@@ -454,6 +453,25 @@ __userInfo:__
 ##### NexxPlayShowHotspotNotification
 The link of a hotspot has been tapped and reported
 
+##### NexxPlayPlayerAddedNotification
+The player has been initialized
+
+##### nexxPlayChangeMediaNotification 
+An error occured while downloading an offline media    
+__userInfo:__    
+* `mediaID` : the ID of the new media
+* `playmode` : the playmode of the new media
+
+##### nexxPlayChangePlayPosNotification 
+An error occured while downloading an offline media    
+__userInfo:__    
+* `playPos` : the new play position
+
+##### nexxPlayChangeMediaIntentNotification 
+In case _forcePrevNext_ is set, the player requests info for the new media when the user presses previous/next.
+__userInfo:__    
+* `direction` : _prev_ or _next_
+
 ### Observing notifications
 
 The notifications are sent by the NSNotificationCenter. To receive a notification you can use the following code snippet:
@@ -500,6 +518,18 @@ The player does support Airplay and PiP, if it is also supported by the device. 
 
 ## Changelog
 
+### v6.0.5
+- new podcast platforms added
+- new playmode _radio_ added
+- notifcations enhanced
+- new notification `NexxPlayShowHotspotNotification`
+- IMPORTANT: the NexxPLAYEnvironment attribute `client` has been changed to `domain`
+- new NexxPLAYConfiguration attributes `titleColor`, `subtitleColor` and `seekbarColor`
+- Notifications renamed: `NexxPlayEnterFullscreenNotification`, `NexxPlayExitFullscreenNotification`, `NexxPlayCloseFullscreenNotification`, `NexxPlayEnterPIPNotification`, `NexxPlayExitPIPNotification`, `NexxPlayExitRemoteNotification`, `NexxPlayEnterRemoteNotification`
+- the notification `NexxPlayFullscreenCloseNotification` has been removed. In case you start the player with `NexxPLAYEnvironment.alwaysInFullscreen` set to _true_, you will receive the notification `NexxPlayExitFullscreen` with additional information when the close button has been tapped 
+
+Compiled with XCode 11.5 (Swift 5)
+
 ### v6.0.4
 - interface method `getMediaData()` now contains custom attributes if available
 - interface improved for obj-c apps
@@ -541,82 +571,3 @@ Compiled with XCode 11.4 (Swift 5.2)
 
 Compiled with XCode 11.4 (Swift 5.2)
 
-### v5.9.90
-- internal renaming
-- interface method renamed: startPlayByForeignReference() is now startByRemoteMedia
-
-Compiled with XCode 11.3.1 (Swift 5.1)
-
-### v5.9.89
-- reporting enhanced
-- interface methods added: startPlayByGlobalID() and startPlayByForeignReference()
-- media url creation enhanced
-
-Compiled with XCode 11.3.1 (Swift 5.1)
-
-### v5.9.88
-- reporting enhanced
-- new cdn types added
-- api update
-- media url creation enhanced
-
-Compiled with XCode 11.3.1 (Swift 5.1)
-
-### v5.9.87
-- Google IMA SDK update
-- reporting enhanced: contextReference can be set by a public function and will be sent with every event
-
-Compiled with XCode 11.0 (Swift 5.1)
-
-### v5.9.86
-- player skin improvements
-- reporting enhanced
-- ad reporting enhanced
-- dailyMe SDK dependency removed
-- advertisement URL creation updated
-
-Compiled with XCode 10.3 (Swift 5.0)
-
-### v5.9.85
-- reporting enhanced: SDK version added to events
-- hls stream creation updated
-- new hotspot types added
-- VAST parsing improved
-
-Compiled with XCode 10.3 (Swift 5.0)
-
-### v5.9.84
-- reporting improved: SDK version added to events
-- story mpde integrated
-- adMode attribute considered in collections
-
-Compiled with XCode 10.3 (Swift 5.0)
-
-### v5.9.83
-- reporting improved
-- scene selection added
-- subtitle parsing improved
-
-Compiled with XCode 10.2.1 (Swift 5.0)
-
-### v5.9.82
-- reporting improved
-- notification 'EndedAll' added
-- new skin 'Glass66' added
-- speed selection added
-- ad reporting bugfixes
-
-Compiled with XCode 10.2.1 (Swift 5.0)
-
-### v5.9.81
-- preview mode enhanced
-- reporting improved
-
-Compiled with XCode 10.2.1 (Swift 5.0)
-
-### v5.9.80
-- UI and UX improvements
-- different exit hotspot possible
-- reporting enhanced
-
-Compiled with XCode 10.2.1 (Swift 5.0)
