@@ -7,9 +7,7 @@
 - new notifications `NexxPlayPlayerAddedNotification`, `NexxPlayChangeMediaNotification`, `NexxPlayChangePlayPosNotification`, `NexxPlayChangeMediaIntentNotification`
 - Objective C adaptions to better access notification names
 - notification `NexxPlayNotificationExitFullscreen` enhanced
-- live URL creation enhanced
 - media control center features enhanced
-- playmode `articleaudio` added
 
 Compiled with XCode 11.5 (Swift 5)
 
