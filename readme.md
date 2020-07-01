@@ -2,12 +2,9 @@
 
 ## Latest version
 
-### v6.0.6
-- new configuration attribute `forcePrevNext`
-- new notifications `NexxPlayPlayerAddedNotification`, `NexxPlayChangeMediaNotification`, `NexxPlayChangePlayPosNotification`, `NexxPlayChangeMediaIntentNotification`
-- Objective C adaptions to better access notification names
-- notification `NexxPlayNotificationExitFullscreen` enhanced
-- media control center features enhanced
+### v6.0.7
+- remote control center improvements
+- fix: crash after multiple frequent swap() calls 
 
 Compiled with XCode 11.5 (Swift 5)
 
@@ -515,6 +512,15 @@ The player does support Airplay and PiP, if it is also supported by the device. 
 
 
 ## Changelog
+
+### v6.0.6
+- new configuration attribute `forcePrevNext`
+- new notifications `NexxPlayPlayerAddedNotification`, `NexxPlayChangeMediaNotification`, `NexxPlayChangePlayPosNotification`, `NexxPlayChangeMediaIntentNotification`
+- Objective C adaptions to better access notification names
+- notification `NexxPlayNotificationExitFullscreen` enhanced
+- media control center features enhanced
+
+Compiled with XCode 11.5 (Swift 5)
 
 ### v6.0.5
 - new podcast platforms added
