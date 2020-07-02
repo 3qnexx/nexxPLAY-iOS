@@ -2,9 +2,9 @@
 
 ## Latest version
 
-### v6.0.7
+### v6.0.8
 - remote control center improvements
-- fix: crash after multiple frequent swap() calls 
+- better error handling for faulty streams
 
 Compiled with XCode 11.5 (Swift 5)
 
@@ -512,6 +512,12 @@ The player does support Airplay and PiP, if it is also supported by the device. 
 
 
 ## Changelog
+
+### v6.0.7
+- remote control center improvements
+- fix: crash after multiple frequent swap() calls 
+
+Compiled with XCode 11.5 (Swift 5)
 
 ### v6.0.6
 - new configuration attribute `forcePrevNext`
