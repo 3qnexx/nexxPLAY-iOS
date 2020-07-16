@@ -2,8 +2,8 @@
 
 ## Latest version
 
-### v6.0.9
-- remote control center handling enhanced
+### v6.0.10
+- remote control center apdapted
 - reporting enhanced
 
 Compiled with XCode 11.5 (Swift 5)
@@ -512,6 +512,12 @@ The player does support Airplay and PiP, if it is also supported by the device. 
 
 
 ## Changelog
+
+### v6.0.9
+- remote control center handling enhanced
+- reporting enhanced
+
+Compiled with XCode 11.5 (Swift 5)
 
 ### v6.0.8
 - remote control center improvements
