@@ -2,9 +2,12 @@
 
 ## Latest version
 
-### v6.0.11
+### v6.0.12
 - offline bugfix for remote referenced medias
 - reporting enhanced
+- notifications enhanced
+- story mode updated
+- caching behaviour improved
 
 Compiled with XCode 11.5 (Swift 5)
 
@@ -277,6 +280,9 @@ The different notifications and how to receive them is described below.
 
 ##### nexxPlayErrorNotification
 The player shows the error view.
+__userInfo:__    
+* `description` : if available the reason for the error
+* `reason` : the server error hint
 
 ##### nexxPlayStartPlaybackNotification
 The player did load the video data.
@@ -512,6 +518,12 @@ The player does support Airplay and PiP, if it is also supported by the device. 
 
 
 ## Changelog
+
+### v6.0.11
+- offline bugfix for remote referenced medias
+- reporting enhanced
+
+Compiled with XCode 11.5 (Swift 5)
 
 ### v6.0.10
 - remote control center apdapted
