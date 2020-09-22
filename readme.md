@@ -2,14 +2,10 @@
 
 ## Latest version
 
-### v6.0.12
-- offline bugfix for remote referenced medias
-- reporting enhanced
-- notifications enhanced
-- story mode updated
-- caching behaviour improved
+### v6.0.13
+- new build for iOS14 
 
-Compiled with XCode 11.5 (Swift 5)
+Compiled with XCode 12 (Swift 5)
 
 ## Integration
 
@@ -262,6 +258,9 @@ Removes the media file, meta data and cover for the given ID and streamtype.
 
 #### clearLocalMedia(streamType:String? = nil)
 Removes all files for a given streamtype. If no streamtype is set, all downloaded files will be removed.
+
+#### diskSpaceUsedForLocalMedia() -> Int64
+Returns the disk space used by the offline content (covers, media files) in bytes. 
 
 ## Player notifications
 
@@ -518,6 +517,15 @@ The player does support Airplay and PiP, if it is also supported by the device. 
 
 
 ## Changelog
+
+### v6.0.12
+- offline bugfix for remote referenced medias
+- reporting enhanced
+- notifications enhanced
+- story mode updated
+- caching behaviour improved
+
+Compiled with XCode 11.5 (Swift 5)
 
 ### v6.0.11
 - offline bugfix for remote referenced medias
