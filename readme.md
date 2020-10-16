@@ -2,8 +2,15 @@
 
 ## Latest version
 
-### v6.0.13
-- new build for iOS14 
+### v6.3.0
+- redesign player UI 
+- add reactions to the sidebar
+- enhance start screen 
+- enhance reporting 
+- add custom warning support
+- add reduced motion support
+- add widget
+- add today extension
 
 Compiled with XCode 12 (Swift 5)
 
@@ -515,8 +522,126 @@ When the device is rotated, the video automatically rotates accordingly.
 
 The player does support Airplay and PiP, if it is also supported by the device. Furthermore the __Background Modes__ capability _Audio, Airplay and Picture in Picture_ must be activated in your project settings in Xcode.
 
+## Today Extension
+
+The nexxPLAY Framework also contains a UI for you to add a today extension to your app. In order to add a today extension to your project, follow these steps:
+
+1. In Xcode select your project and in the targets column, add a new target via the "+" on the bottom
+2. Select the "Today Extension" and give it an appropriate product name
+3. In case you are asked to activate the target, please select "Activate"
+4. Select your new target and add the nexxPLAY framework to "Frameworks and Libraries"
+5. Switch to "Build Phases" and add the nexxPlay.bundle to "Copy Bundle Resources"
+6. In the project tree you should see a new folder with the name you gave the today extension in 2. Open the folder and open the TodayViewController
+7. replace the code of the file with the following code:
+
+```swift
+import UIKit
+import NotificationCenter
+import nexxPlay
+
+class TodayViewController: UIViewController, NCWidgetProviding {
+        
+    var nexxPLAYTodayView:NexxPLAYTodayView = NexxPLAYTodayView()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view.
+        
+        let config = NexxWidgetConfiguration(appID: nil, language: nil, slideUpdateInterval: nil, refreshIntervalMinutes: nil)
+        let widgetData = NexxWidgetData(domain: "484", deeplink: "", autoExportHash: "D0T646AS2IF7S50", autoExportSecret: "", config: config)
+        
+        nexxPLAYTodayView.initializeView(withData: widgetData) { media in
+            let urlString = "demoURL://..."
+            if let url = URL(string: urlString) {
+                self.extensionContext?.open(url, completionHandler: nil)
+            }
+        }
+        nexxPLAYTodayView.add(toView: self.view)
+    }
+    
+    func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
+        nexxPLAYTodayView.widgetPerformUpdate() { (height) in
+            if let height = height {
+                self.extensionContext?.widgetLargestAvailableDisplayMode = .expanded
+                self.preferredContentSize = CGSize(width: self.view.frame.size.width, height: height)
+                completionHandler(.newData)
+            } else {
+                completionHandler(.failed)
+            }
+        }
+    }
+    
+    func widgetActiveDisplayModeDidChange(_ activeDisplayMode: NCWidgetDisplayMode, withMaximumSize maxSize: CGSize) {
+        self.preferredContentSize = nexxPLAYTodayView.widgetActiveDisplayModeDidChange(activeDisplayMode, withMaximumSize: maxSize)
+    }
+}
+```
+
+8. Configure the extension to your needs by modifying the `NexxWidgetConfiguration` and `NexxWidgetData` objects
+9. There should also be a "Maininterface.storyboard" that contains a UILabel by default. Please remove the label there.
+
+## Widget (iOS14 and later)
+
+Since iOS 14 Apple introduced Widgets that can be added to the springboard in different sizes. They behave just as the today extensions, presenting data from their corresponding app and deeplinking into the app once the user has selected an element or the widget itself. In order to add the NexxWidget to our application, please follow these steps:
+
+1. In Xcode select your project and in the targets column, add a new target via the "+" on the bottom
+2. Select the "Widget Extension" and give it an appropriate product name
+3. In case you are asked to activate the target, please select "Activate"
+4. Select your new target and add the nexxPLAY framework to "Frameworks and Libraries"
+5. Switch to "Build Phases" and add the nexxPlay.bundle to "Copy Bundle Resources"
+6. Remove all code above the `@main` in your widget code file so you only have the imports, the widget struct and its preview left.
+7. Surround the complete code with a precompiler check for arm64 or simulators (see code example). The widget file should look similar to this now:
+
+```swift
+#if arch(arm64) || arch(x86_64)
+@main
+struct MyWidget: Widget {
+    private let kind: String = "MyWidget"
+    
+    var widgetData:NexxWidgetData {
+        let config = NexxWidgetConfiguration(appID: 0, language: "de", slideUpdateInterval: nil, refreshIntervalMinutes: nil)
+        return NexxWidgetData(domain: "484", deeplink: "", autoExportHash: "", autoExportSecret: "", config: config)
+    }
+
+    public var body: some WidgetConfiguration {
+        StaticConfiguration(kind: kind, provider: NexxWidgetProvider(widgetData: widgetData)) { (entry) -> NexxWidgetEntryView in
+            NexxWidgetEntryView(entry: entry)
+        }
+        .configurationDisplayName("My Widget")
+        .description("my widget.")
+        .supportedFamilies([.systemSmall,.systemMedium, .systemLarge])
+    }
+}
+```
+
+8. Configure the widget to your needs by modifying the `NexxWidgetConfiguration` and `NexxWidgetData` objects
+9. Try and run the extension on device/simulator
+
+## Extension data objects
+
+There are two data objects that need to be provided for the extensions, so they can retreive and present the media data.
+
+### NexxWidgetData
+
+•    `domain:String` = the ID of the domain (mandatory)                 
+•    `deeplink:String` = the deeplink that is registered to open your application with the data of the selected media (mandatory)
+•    `autoExportHash:String` = needed for creating the data request (mandatory)
+•    `autoExportSecret:String` = to create the data request (optional)
+•    `config:NexxWidgetConfiguration` = a configuration object with multiple settings (mandatory)
+
+### NexxWidgetConfiguration
+
+•    `appID:Int?` = is passed to the server when requesting data (optional)
+•    `language:String?` = is passed to the server when requesting data in order to localize the data (optional)
+•    `refreshIntervalMinutes:Double?` = defines the timespan after which new media data is requested (optional, default is 30)
+•    `slideUpdateInterval:Double?` = defines the timespan in seconds after which a new media is presented (optional, widget only, default is 20)
 
 ## Changelog
+
+### v6.0.13
+- new build for iOS14 
+
+Compiled with XCode 12 (Swift 5)
 
 ### v6.0.12
 - offline bugfix for remote referenced medias
