@@ -2,15 +2,8 @@
 
 ## Latest version
 
-### v6.3.0
-- redesign player UI 
-- add reactions to the sidebar
-- enhance start screen 
-- enhance reporting 
-- add custom warning support
-- add reduced motion support
-- add widget
-- add today extension
+### v6.3.1
+- add support for streaming mix
 
 Compiled with XCode 12 (Swift 5)
 
@@ -637,6 +630,18 @@ There are two data objects that need to be provided for the extensions, so they 
 •    `slideUpdateInterval:Double?` = defines the timespan in seconds after which a new media is presented (optional, widget only, default is 20)
 
 ## Changelog
+
+### v6.3.0
+- redesign player UI 
+- add reactions to the sidebar
+- enhance start screen 
+- enhance reporting 
+- add custom warning support
+- add reduced motion support
+- add widget
+- add today extension
+
+Compiled with XCode 12 (Swift 5)
 
 ### v6.0.13
 - new build for iOS14 
