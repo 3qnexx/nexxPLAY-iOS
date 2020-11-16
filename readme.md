@@ -2,10 +2,12 @@
 
 ## Latest version
 
-### v6.3.1
+### v6.3.2
 - add support for streaming mix
+- add widget
+- add today extension
 
-Compiled with XCode 12 (Swift 5)
+Compiled with XCode 12.2 (Swift 5.3.1)
 
 ## Integration
 
@@ -618,8 +620,8 @@ There are two data objects that need to be provided for the extensions, so they 
 
 •    `domain:String` = the ID of the domain (mandatory)                 
 •    `deeplink:String` = the deeplink that is registered to open your application with the data of the selected media (mandatory)
-•    `autoExportHash:String` = needed for creating the data request (mandatory)
-•    `autoExportSecret:String` = to create the data request (optional)
+•    `feedHash:String` = needed for creating the data request (mandatory)
+•    `feedSecret:String` = to create the data request (optional)
 •    `config:NexxWidgetConfiguration` = a configuration object with multiple settings (mandatory)
 
 ### NexxWidgetConfiguration
@@ -631,6 +633,11 @@ There are two data objects that need to be provided for the extensions, so they 
 
 ## Changelog
 
+### v6.3.1
+- add support for streaming mix
+
+Compiled with XCode 12 (Swift 5)
+
 ### v6.3.0
 - redesign player UI 
 - add reactions to the sidebar
@@ -638,8 +645,6 @@ There are two data objects that need to be provided for the extensions, so they 
 - enhance reporting 
 - add custom warning support
 - add reduced motion support
-- add widget
-- add today extension
 
 Compiled with XCode 12 (Swift 5)
 
