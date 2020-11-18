@@ -46,7 +46,8 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() { 
         super.viewDidLoad()
-        let player = NexxPLAYView(frame: CGRect(x: 0, y: 0, width: 300, height: 300)) view.addSubview(v_player)
+        let player = NexxPLAYView(frame: CGRect(x: 0, y: 0, width: 300, height: 300)) 
+        view.addSubview(player)
         player.setEnvironment(NexxPLAYEnvironment(domain: "1"))
         player.startPlay(streamType: "video", mediaID: "12345", configuration: NexxPLAYConfiguration())
     }
