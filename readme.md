@@ -2,10 +2,8 @@
 
 ## Latest version
 
-### v6.3.2
-- add support for streaming mix
-- add widget
-- add today extension
+### v6.3.3
+- improved Xcode 12.2 support
 
 Compiled with XCode 12.2 (Swift 5.3.1)
 
@@ -633,6 +631,13 @@ There are two data objects that need to be provided for the extensions, so they 
 •    `slideUpdateInterval:Double?` = defines the timespan in seconds after which a new media is presented (optional, widget only, default is 20)
 
 ## Changelog
+
+### v6.3.2
+- add support for streaming mix
+- add widget
+- add today extension
+
+Compiled with XCode 12.2 (Swift 5.3.1)
 
 ### v6.3.1
 - add support for streaming mix
