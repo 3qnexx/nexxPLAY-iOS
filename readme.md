@@ -2,10 +2,13 @@
 
 ## Latest version
 
-### v6.3.3
-- improved Xcode 12.2 support
+### v6.3.4
+- add support for authordata
+- add configuration variable `playbackMode`,   `disableErrorExit` and `imageScaleMode:String`
+- enhance reporting
+- show titles in storymode
 
-Compiled with XCode 12.2 (Swift 5.3.1)
+Compiled with XCode 12.4 (Swift 5.3.1)
 
 ## Integration
 
@@ -67,7 +70,7 @@ The NexxPLAYEnvironment object contains global settings for the player object. E
 •    `affiliatePartner:Int` = the ID of the affiliate partner regarding the tracking (default is 0)                 
 •    `playLicensePartner:Int` = the ID of the play license partner for the backend (default is 0)                 
 •    `contextReference:String` = the context reference for reporting (default is "")                 
-•    `foceSSL:Bool` = defines whether URLs are created with SSL (defualt is true)                 
+•    `useSSL:Bool` = defines whether URLs are created with SSL (default is true)                 
 •    `trackingOptOuted:Bool` = defines whether tracking is allowed or not (default is false)                 
 •    `cordovaEnabled:Bool` = set this option to true if you run the SDK in a cordova app (default is false)                 
 •    `alwaysInFullscreen:Bool` = tell the SDK whether you show the player in fullscreen or not (defualt is false)                 
@@ -118,6 +121,9 @@ The NexxPLAYConfiguration object contains settings regarding the player UI and b
 •    `streamingFilter:String` = overrides the APIs streaming filter (default is "")                                  
 •    `startedVia:String` = overrides session call reason for reporting (default is "")                 
 •    `forcePrevNext:Int` = if this attribute is set to 1, the player shows the previous/next track buttons although there is a single media. in case one of the buttons is pressed, the new notification `NexxPlayChangeMediaIntentNotification` is sent        
+•    `playbackMode:String` = can be set to "story" or "pseudolive" to initiate special behaviour (defsult is "default")                 
+•    `disableErrorExit:Int` = if this value is set to 1, the player will not show the error screen but a loading indicator and wait for new media                 
+•    `imageScaleMode:String` = defines the scaleMode of images, can be "fixed", "width", "height"                 
 
 ## Public methods
 
@@ -361,12 +367,6 @@ __userInfo:__
 * `hasAudio` : 1 if the media  has audio, 0 otherwise
 * `aspectRatio`: the aspect ratio of the media, for audio streams the value is "none"
 
-##### nexxPlayShowUINotification 
-Every time the player controls become visible.
-
-##### nexxPlayHideUINotification 
-Every time the player controls will hide.
-
 ##### nexxPlayEnterFullscreenNotification 
 Every time the player enters fullscreen.
 
@@ -473,6 +473,12 @@ In case _forcePrevNext_ is set, the player requests info for the new media when 
 __userInfo:__    
 * `direction` : _prev_ or _next_
 
+##### nexxPlayShowOverlayNotification 
+Every time an overlay is shown on the player
+
+##### nexxPlayHideOverlayNotification 
+Every time a visible overlay is dismissed
+
 ### Observing notifications
 
 The notifications are sent by the NSNotificationCenter. To receive a notification you can use the following code snippet:
@@ -542,7 +548,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         // Do any additional setup after loading the view.
         
         let config = NexxWidgetConfiguration(appID: nil, language: nil, slideUpdateInterval: nil, refreshIntervalMinutes: nil)
-        let widgetData = NexxWidgetData(domain: "484", deeplink: "", autoExportHash: "D0T646AS2IF7S50", autoExportSecret: "", config: config)
+        let widgetData = NexxWidgetData(domain: "484", deeplink: "", feedHash: "D0T646AS2IF7S50", feedSecret: "", config: config)
         
         nexxPLAYTodayView.initializeView(withData: widgetData) { media in
             let urlString = "demoURL://..."
@@ -594,7 +600,7 @@ struct MyWidget: Widget {
     
     var widgetData:NexxWidgetData {
         let config = NexxWidgetConfiguration(appID: 0, language: "de", slideUpdateInterval: nil, refreshIntervalMinutes: nil)
-        return NexxWidgetData(domain: "484", deeplink: "", autoExportHash: "", autoExportSecret: "", config: config)
+        return NexxWidgetData(domain: "484", deeplink: "", feedHash: "", feedSecret: "", config: config)
     }
 
     public var body: some WidgetConfiguration {
@@ -606,6 +612,7 @@ struct MyWidget: Widget {
         .supportedFamilies([.systemSmall,.systemMedium, .systemLarge])
     }
 }
+#endif
 ```
 
 8. Configure the widget to your needs by modifying the `NexxWidgetConfiguration` and `NexxWidgetData` objects
@@ -631,6 +638,11 @@ There are two data objects that need to be provided for the extensions, so they 
 •    `slideUpdateInterval:Double?` = defines the timespan in seconds after which a new media is presented (optional, widget only, default is 20)
 
 ## Changelog
+
+### v6.3.3
+- improved Xcode 12.2 support
+
+Compiled with XCode 12.2 (Swift 5.3.1)
 
 ### v6.3.2
 - add support for streaming mix
