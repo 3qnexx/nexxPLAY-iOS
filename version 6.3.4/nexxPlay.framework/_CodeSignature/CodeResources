@@ -10,7 +10,7 @@
 		</data>
 		<key>Headers/nexxPlay-Swift.h</key>
 		<data>
-		j6aa8kR9mvjMGueVZ/fTv5vx8wg=
+		vbQ61hDrlECxO+S3ozSvE9+8IEo=
 		</data>
 		<key>Headers/nexxPlay.h</key>
 		<data>
@@ -28,6 +28,14 @@
 		<data>
 		H7WjxwRfQsnTmmWyaOZ97EZXjmQ=
 		</data>
+		<key>Modules/nexxPlay.swiftmodule/Project/arm64-apple-ios.swiftsourceinfo</key>
+		<data>
+		I4qwwWOXKkryQuBgPkGP8aZF9lc=
+		</data>
+		<key>Modules/nexxPlay.swiftmodule/Project/arm64.swiftsourceinfo</key>
+		<data>
+		I4qwwWOXKkryQuBgPkGP8aZF9lc=
+		</data>
 		<key>Modules/nexxPlay.swiftmodule/Project/armv7-apple-ios.swiftsourceinfo</key>
 		<data>
 		H7WjxwRfQsnTmmWyaOZ97EZXjmQ=
@@ -43,6 +51,22 @@
 		<key>Modules/nexxPlay.swiftmodule/arm.swiftmodule</key>
 		<data>
 		dzVjZ2CJGO944rzDZXdx795i8Ak=
+		</data>
+		<key>Modules/nexxPlay.swiftmodule/arm64-apple-ios.swiftdoc</key>
+		<data>
+		Ghj1eY9apCrGtJNjaXfvT3b2ndk=
+		</data>
+		<key>Modules/nexxPlay.swiftmodule/arm64-apple-ios.swiftmodule</key>
+		<data>
+		L7VSsGJYeVob/KJaJYaP4kKgF4M=
+		</data>
+		<key>Modules/nexxPlay.swiftmodule/arm64.swiftdoc</key>
+		<data>
+		Ghj1eY9apCrGtJNjaXfvT3b2ndk=
+		</data>
+		<key>Modules/nexxPlay.swiftmodule/arm64.swiftmodule</key>
+		<data>
+		L7VSsGJYeVob/KJaJYaP4kKgF4M=
 		</data>
 		<key>Modules/nexxPlay.swiftmodule/armv7-apple-ios.swiftdoc</key>
 		<data>
@@ -90,11 +114,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			j6aa8kR9mvjMGueVZ/fTv5vx8wg=
+			vbQ61hDrlECxO+S3ozSvE9+8IEo=
 			</data>
 			<key>hash2</key>
 			<data>
-			H4sY8DAcavH6cUOglbtWzFYiNKPQ+02Qs8dcBb7cAis=
+			wXN3oza5KV6bqauq+zu7J0zk1SPQqmOm6caCJAPtWaQ=
 			</data>
 		</dict>
 		<key>Headers/nexxPlay.h</key>
@@ -128,6 +152,28 @@
 			<key>hash2</key>
 			<data>
 			xj1oPR3r6IlUb8VGqklNhynIJcdHsfXquj7AYcSvmMo=
+			</data>
+		</dict>
+		<key>Modules/nexxPlay.swiftmodule/Project/arm64-apple-ios.swiftsourceinfo</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			I4qwwWOXKkryQuBgPkGP8aZF9lc=
+			</data>
+			<key>hash2</key>
+			<data>
+			v2k4wJmM5BK/xMZA0Q941AdccjYimOIO33qR4BEYY18=
+			</data>
+		</dict>
+		<key>Modules/nexxPlay.swiftmodule/Project/arm64.swiftsourceinfo</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			I4qwwWOXKkryQuBgPkGP8aZF9lc=
+			</data>
+			<key>hash2</key>
+			<data>
+			v2k4wJmM5BK/xMZA0Q941AdccjYimOIO33qR4BEYY18=
 			</data>
 		</dict>
 		<key>Modules/nexxPlay.swiftmodule/Project/armv7-apple-ios.swiftsourceinfo</key>
@@ -172,6 +218,50 @@
 			<key>hash2</key>
 			<data>
 			z1JwNgjnqJ6jMoEoPAtFVYrrBHvRucjbfAd6+QqN1KU=
+			</data>
+		</dict>
+		<key>Modules/nexxPlay.swiftmodule/arm64-apple-ios.swiftdoc</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			Ghj1eY9apCrGtJNjaXfvT3b2ndk=
+			</data>
+			<key>hash2</key>
+			<data>
+			PpJxurkihFPHqWlKCb8ZJgn/k6qyUPoN/m9iqY/mVDg=
+			</data>
+		</dict>
+		<key>Modules/nexxPlay.swiftmodule/arm64-apple-ios.swiftmodule</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			L7VSsGJYeVob/KJaJYaP4kKgF4M=
+			</data>
+			<key>hash2</key>
+			<data>
+			1EySSLn0h9dewBUpDt97a1Q+ZmTrUCDcTGmgWiCxMrI=
+			</data>
+		</dict>
+		<key>Modules/nexxPlay.swiftmodule/arm64.swiftdoc</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			Ghj1eY9apCrGtJNjaXfvT3b2ndk=
+			</data>
+			<key>hash2</key>
+			<data>
+			PpJxurkihFPHqWlKCb8ZJgn/k6qyUPoN/m9iqY/mVDg=
+			</data>
+		</dict>
+		<key>Modules/nexxPlay.swiftmodule/arm64.swiftmodule</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			L7VSsGJYeVob/KJaJYaP4kKgF4M=
+			</data>
+			<key>hash2</key>
+			<data>
+			1EySSLn0h9dewBUpDt97a1Q+ZmTrUCDcTGmgWiCxMrI=
 			</data>
 		</dict>
 		<key>Modules/nexxPlay.swiftmodule/armv7-apple-ios.swiftdoc</key>
