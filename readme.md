@@ -2,11 +2,9 @@
 
 ## Latest version
 
-### v6.3.4
-- add support for authordata
-- add configuration variable `playbackMode`,   `disableErrorExit` and `imageScaleMode:String`
+### v6.3.5
+- add hls support
 - enhance reporting
-- show titles in storymode
 
 Compiled with XCode 12.4 (Swift 5.3.1)
 
@@ -638,6 +636,12 @@ There are two data objects that need to be provided for the extensions, so they 
 •    `slideUpdateInterval:Double?` = defines the timespan in seconds after which a new media is presented (optional, widget only, default is 20)
 
 ## Changelog
+
+### v6.3.4
+- add support for authordata
+- add configuration variable `playbackMode`,   `disableErrorExit` and `imageScaleMode:String`
+- enhance reporting
+- show titles in storymode
 
 ### v6.3.3
 - improved Xcode 12.2 support
