@@ -2,9 +2,9 @@
 
 ## Latest version
 
-### v6.3.5
-- add hls support
-- enhance reporting
+### v6.3.6
+- improve exit display behaviour
+- enhance tcf 
 
 Compiled with XCode 12.4 (Swift 5.3.1)
 
@@ -66,7 +66,7 @@ The NexxPLAYEnvironment object contains global settings for the player object. E
 •    `language:String?` = an override for the system language to get language specific data from the backend (e.g. "en")                 
 •    `userHash:String` = the hash of the current user (default is "")                 
 •    `affiliatePartner:Int` = the ID of the affiliate partner regarding the tracking (default is 0)                 
-•    `playLicensePartner:Int` = the ID of the play license partner for the backend (default is 0)                 
+•    `deliveryPartner:Int` = the ID of the delivery partner for the backend (default is 0)                 
 •    `contextReference:String` = the context reference for reporting (default is "")                 
 •    `useSSL:Bool` = defines whether URLs are created with SSL (default is true)                 
 •    `trackingOptOuted:Bool` = defines whether tracking is allowed or not (default is false)                 
@@ -636,6 +636,12 @@ There are two data objects that need to be provided for the extensions, so they 
 •    `slideUpdateInterval:Double?` = defines the timespan in seconds after which a new media is presented (optional, widget only, default is 20)
 
 ## Changelog
+
+### v6.3.5
+- add hls support
+- enhance reporting
+
+Compiled with XCode 12.4 (Swift 5.3.1)
 
 ### v6.3.4
 - add support for authordata
