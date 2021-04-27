@@ -10,6 +10,14 @@ Please find the complete documentation of the nexxPLAY Widget following this [li
 
 ## Changelog
 
+### v6.3.7
+- audio mode "hero" added
+- enhance tracking 
+- add config attribute _enableSystemMedia_
+- first build in xcframework format
+
+Compiled with XCode 12.4 (Swift 5.3.1)
+
 ### v6.3.6
 - improve exit display behaviour
 - enhance tcf 
@@ -19,13 +27,5 @@ Compiled with XCode 12.4 (Swift 5.3.1)
 ### v6.3.5
 - add hls support
 - enhance reporting
-
-Compiled with XCode 12.4 (Swift 5.3.1)
-
-### v6.3.4
-- add support for authordata
-- add configuration variable `playbackMode`,   `disableErrorExit` and `imageScaleMode:String`
-- enhance reporting
-- show titles in storymode
 
 Compiled with XCode 12.4 (Swift 5.3.1)
