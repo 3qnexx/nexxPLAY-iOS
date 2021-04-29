@@ -10,6 +10,11 @@ Please find the complete documentation of the nexxPLAY Widget following this [li
 
 ## Changelog
 
+### v6.3.8
+- built with the new Xcode version
+
+Compiled with XCode 12.5 (Swift 5.4)
+
 ### v6.3.7
 - audio mode "hero" added
 - enhance tracking 
@@ -21,11 +26,5 @@ Compiled with XCode 12.4 (Swift 5.3.1)
 ### v6.3.6
 - improve exit display behaviour
 - enhance tcf 
-
-Compiled with XCode 12.4 (Swift 5.3.1)
-
-### v6.3.5
-- add hls support
-- enhance reporting
 
 Compiled with XCode 12.4 (Swift 5.3.1)
