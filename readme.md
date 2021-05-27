@@ -20,6 +20,7 @@ Please find the complete documentation of the nexxPLAY Widget following this [li
 
 ### v6.3.8
 - built with the new Xcode version
+- iOS 14.5 support
 
 Compiled with XCode 12.5 (Swift 5.4)
 
