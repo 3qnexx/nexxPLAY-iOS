@@ -10,6 +10,14 @@ Please find the complete documentation of the nexxPLAY Widget following this [li
 
 ## Changelog
 
+### v6.3.9
+- add new notification when the playrate is changed by the user
+- new config values _abTestVersion_ and _enableItemCovers_  for AB testing
+- new config value _bumperMode_ to enable/disable bumpers
+- new config value _enableTrickPlay_ to enable/disable playRate manipulation
+- new environment value _externalUserReference_
+
+
 ### v6.3.8
 - built with the new Xcode version
 
