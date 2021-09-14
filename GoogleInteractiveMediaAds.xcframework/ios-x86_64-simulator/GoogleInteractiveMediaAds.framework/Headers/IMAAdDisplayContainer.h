@@ -33,10 +33,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, weak, nullable) UIViewController *adContainerViewController;
 
-/**
- * The environment to focus on during an ad break. Nil if there is not currently an ad break, or if
- * the ad break does not require focus.
- */
+/** The environment to focus on during an ad break. Nil if there is not currently an ad break. */
 @property(nonatomic, readonly, nullable) id<UIFocusEnvironment> focusEnvironment;
 
 /** List of companion ad slots. Can be nil or empty. */

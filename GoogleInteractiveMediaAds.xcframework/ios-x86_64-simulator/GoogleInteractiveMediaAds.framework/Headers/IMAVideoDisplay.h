@@ -8,6 +8,10 @@
 
 #import "IMAAdPlaybackInfo.h"
 
+#import <MediaPlayer/MediaPlayer.h>
+
+NS_ASSUME_NONNULL_BEGIN
+
 @protocol IMAVideoDisplay;
 
 /**
@@ -143,13 +147,22 @@
 /**
  * Allows the publisher to send player events to the SDK.
  */
-@property(nonatomic, weak) id<IMAVideoDisplayDelegate> delegate;
+@property(nullable, nonatomic, weak) id<IMAVideoDisplayDelegate> delegate;
 
 /**
  * Set and get the volume for the current ad. From 0 (muted) to 1 (loudest). This volume is
  * relative to device volume, not absolute. Default value is 1.
  */
 @property(nonatomic, assign) float volume;
+
+#if TARGET_OS_TV && __TV_OS_VERSION_MAX_ALLOWED >= 140000
+/**
+ * Returns the now playing session for video playback. If nil by ad or stream request time, the ads
+ * loader will error out. This is required on tvOS 14+ so that the SDK is able to listen for remote
+ * control play and pause events even when focus is on ad UI.
+ */
+@property(nonatomic, readonly) MPNowPlayingSession *nowPlayingSession API_AVAILABLE(tvos(14.0));
+#endif
 
 /**
  * Called to inform the VideoDisplay to load the passed URL with the subtitles for the stream.
@@ -169,7 +182,8 @@
  *                   "webvtt" -> "https://somedomain.com/vtt/en.vtt"
  *                   "ttml" -> "https://somedomain.com/ttml/en.ttml"
  */
-- (void)loadStream:(NSURL *)streamURL withSubtitles:(NSArray *)subtitles;
+- (void)loadStream:(NSURL *)streamURL
+     withSubtitles:(NSArray<NSDictionary<NSString *, NSString *> *> *)subtitles;
 
 /**
  * Called to inform the VideoDisplay to play.
@@ -194,3 +208,5 @@
 - (void)seekStreamToTime:(NSTimeInterval)time;
 
 @end
+
+NS_ASSUME_NONNULL_END

@@ -51,7 +51,7 @@
  * The view the companion will be rendered in. Display this view in your
  * application before video ad starts.
  */
-@property(nonatomic, strong, readonly) UIView *view;
+@property(nonatomic, readonly) UIView *view;
 
 /**
  * Width of the slot, in pixels. This value is sent to the DFP ad server for

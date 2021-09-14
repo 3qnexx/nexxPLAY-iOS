@@ -144,7 +144,7 @@
 /**
  * Groups various properties about the linear ad playback.
  */
-@property(nonatomic, strong, readonly) id<IMAAdPlaybackInfo> adPlaybackInfo;
+@property(nonatomic, readonly) id<IMAAdPlaybackInfo> adPlaybackInfo;
 
 /**
  * Set and get the volume for the current ad. From 0 (muted) to 1 (loudest). This volume is

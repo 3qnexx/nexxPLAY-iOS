@@ -37,12 +37,12 @@
 /**
  * The ad display container.
  */
-@property(nonatomic, strong, readonly) IMAAdDisplayContainer *adDisplayContainer;
+@property(nonatomic, readonly) IMAAdDisplayContainer *adDisplayContainer;
 
 /**
  * The user context.
  */
-@property(nonatomic, strong, readonly) id userContext;
+@property(nonatomic, readonly) id userContext;
 
 /**
  * Specifies whether the player intends to start the content and ad in

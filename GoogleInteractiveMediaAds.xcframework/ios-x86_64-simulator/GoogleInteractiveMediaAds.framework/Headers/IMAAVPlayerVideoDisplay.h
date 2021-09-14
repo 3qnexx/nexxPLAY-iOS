@@ -71,7 +71,7 @@ extern NSString *const kIMASubtitleTTML;
 /**
  * The subtitles for the current stream. Will be nil until the stream starts playing.
  */
-@property(nonatomic, strong, readonly) NSArray *subtitles;
+@property(nonatomic, readonly) NSArray *subtitles;
 
 /**
  * A dictionary that contains options used to customize the initialization of an @c AVURLAsset for
@@ -88,5 +88,20 @@ extern NSString *const kIMASubtitleTTML;
  * @return an IMAAVPlayerVideoDisplay instance
  */
 - (instancetype)initWithAVPlayer:(AVPlayer *)player;
+
+#if TARGET_OS_TV && __TV_OS_VERSION_MAX_ALLOWED >= 140000
+/**
+ * Creates an IMAAVPlayerVideoDisplay that will play ads in the passed in
+ * content player. Use this initializer for tvOS 14+.
+ *
+ * @param player the AVPlayer instance used for playing content
+ * @param nowPlayingSession the session used to listen for remote control events and to update
+ *     playback info.
+ *
+ * @return an IMAAVPlayerVideoDisplay instance
+ */
+- (instancetype)initWithAVPlayer:(AVPlayer *)player
+               nowPlayingSession:(MPNowPlayingSession *)nowPlayingSession API_AVAILABLE(tvos(14.0));
+#endif
 
 @end

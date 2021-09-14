@@ -27,18 +27,18 @@
  * The ads manager instance created by the ads loader.
  * Will be nil when using dynamic ad insertion.
  */
-@property(nonatomic, strong, readonly) IMAAdsManager *adsManager;
+@property(nonatomic, readonly) IMAAdsManager *adsManager;
 
 /**
  * The stream manager instance created by the ads loader.
  * Will be nil when requesting ads client side.
  */
-@property(nonatomic, strong, readonly) IMAStreamManager *streamManager;
+@property(nonatomic, readonly) IMAStreamManager *streamManager;
 
 /**
  * The user context specified in the ads request.
  */
-@property(nonatomic, strong, readonly) id userContext;
+@property(nonatomic, readonly) id userContext;
 
 @end
 
@@ -53,12 +53,12 @@
 /**
  * The ad error that occurred while loading the ad.
  */
-@property(nonatomic, strong, readonly) IMAAdError *adError;
+@property(nonatomic, readonly) IMAAdError *adError;
 
 /**
  * The user context specified in the ads request.
  */
-@property(nonatomic, strong, readonly) id userContext;
+@property(nonatomic, readonly) id userContext;
 
 @end
 

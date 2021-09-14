@@ -19,12 +19,12 @@
 /**
  * The stream display container for displaying the ad UI.
  */
-@property(nonatomic, strong, readonly) IMAAdDisplayContainer *adDisplayContainer;
+@property(nonatomic, readonly) IMAAdDisplayContainer *adDisplayContainer;
 
 /**
  * The video display where the stream can be played.
  */
-@property(nonatomic, strong, readonly) id<IMAVideoDisplay> videoDisplay;
+@property(nonatomic, readonly) id<IMAVideoDisplay> videoDisplay;
 
 /**
  * The stream request API key. It's configured through the

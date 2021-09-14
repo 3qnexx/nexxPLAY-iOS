@@ -115,7 +115,7 @@
 /**
  * Set of ad podding properties.
  */
-@property(nonatomic, strong, readonly) IMAAdPodInfo *adPodInfo;
+@property(nonatomic, readonly) IMAAdPodInfo *adPodInfo;
 
 /**
  * String representing custom trafficking parameters from the VAST response.

@@ -64,6 +64,12 @@
 @property(nonatomic, copy) NSString *playerVersion;
 
 /**
+ * The session ID to identify a single user session. This should be a UUID. It
+ * is used exclusively for frequency capping across the user session.
+ */
+@property(nonatomic, copy) NSString *sessionID;
+
+/**
  * Toggles debug mode which will output detailed log information to the console.
  * Debug mode should be disabled in Release and will display a watermark when
  * enabled. The default value is NO.
