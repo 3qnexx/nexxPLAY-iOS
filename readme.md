@@ -10,6 +10,17 @@ Please find the complete documentation of the nexxPLAY Widget following this [li
 
 ## Changelog
 
+### v6.4.0
+
+- new config values  _adVASTTimeout_ and _adMediaTimeout_  
+- new hotspot types added
+- add low data mode
+- modify user info in notifications
+- enhance _getMediaData()_ call
+- rename widget configuration objects
+- new playmode _scenelist_
+
+
 ### v6.3.9
 - add new notification when the playrate is changed by the user
 - new config values _abTestVersion_ and _enableItemCovers_  for AB testing
