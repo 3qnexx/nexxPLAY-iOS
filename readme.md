@@ -20,6 +20,7 @@ Please find the complete documentation of the nexxPLAY Widget following this [li
 - rename widget configuration objects
 - new playmode _scenelist_
 
+Compiled with XCode 13.1 (Swift 5.5.1)
 
 ### v6.3.9
 - add new notification when the playrate is changed by the user
