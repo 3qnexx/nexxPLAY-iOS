@@ -10,6 +10,12 @@ Please find the complete documentation of the nexxPLAY Widget following this [li
 
 ## Changelog
 
+### v6.4.01
+
+- UI fixes
+
+Compiled with XCode 13.2.1 (Swift 5.5.2)
+
 ### v6.4.0
 
 - new config values  _adVASTTimeout_ and _adMediaTimeout_  
@@ -19,6 +25,9 @@ Please find the complete documentation of the nexxPLAY Widget following this [li
 - enhance _getMediaData()_ call
 - rename widget configuration objects
 - new playmode _scenelist_
+- rename _MetadataLoaded_ notification to _Metadata_
+- rewrite getMediaData() function to getCurrentMedia() and getCurrentPlaybackState()
+- rename _DownloadSuccess_ notification to _DownloadReady_
 
 Compiled with XCode 13.1 (Swift 5.5.1)
 
