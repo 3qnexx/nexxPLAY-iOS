@@ -1,0 +1,267 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.6 (swiftlang-5.6.0.323.62 clang-1316.0.20.8)
+// swift-module-flags: -target x86_64-apple-ios9.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name nexxPlay
+import AVFoundation
+import AVKit
+import AdSupport
+import AppTrackingTransparency
+import AudioToolbox
+import CoreMedia
+import CoreTelephony
+import CoreText
+import Foundation
+import GoogleInteractiveMediaAds
+import ImageIO
+import MediaPlayer
+import Network
+import NotificationCenter
+import Swift
+import SwiftUI
+import SystemConfiguration
+import UIKit
+import WebKit
+import WidgetKit
+import _Concurrency
+import os.log
+@_exported import nexxPlay
+import os
+public enum NexxPlayOfflineDownloadState {
+  case loading
+  case loaded
+  case error(Swift.Error)
+  public var description: Swift.String {
+    get
+  }
+}
+public struct NexxPLAYWidgetData {
+  public init(domain: Swift.String, launchURL: Swift.String, feedHash: Swift.String, feedSecret: Swift.String, userHash: Swift.String, config: nexxPlay.NexxPLAYWidgetConfiguration)
+}
+public func nexx_md5(string: Swift.String) -> Swift.String
+extension UIKit.UIColor {
+  convenience public init?(hex: Swift.String)
+}
+public struct WidgetEntry : WidgetKit.TimelineEntry {
+  public let date: Foundation.Date
+}
+@objc @_inheritsConvenienceInitializers open class NexxPLAYNotifications : ObjectiveC.NSObject {
+  @objc public static let Error: Swift.String
+  @objc public static let StartPlayback: Swift.String
+  @objc public static let StartPlay: Swift.String
+  @objc public static let Play: Swift.String
+  @objc public static let Pause: Swift.String
+  @objc public static let Progress25: Swift.String
+  @objc public static let Progress50: Swift.String
+  @objc public static let Progress75: Swift.String
+  @objc public static let Progress95: Swift.String
+  @objc public static let Progress100: Swift.String
+  @objc public static let EnterFullscreen: Swift.String
+  @objc public static let ExitFullscreen: Swift.String
+  @objc public static let Ended: Swift.String
+  @objc public static let EndedAll: Swift.String
+  @objc public static let PlayPos: Swift.String
+  @objc public static let AdStarted: Swift.String
+  @objc public static let AdEnded: Swift.String
+  @objc public static let AdError: Swift.String
+  @objc public static let AdCalled: Swift.String
+  @objc public static let AdClicked: Swift.String
+  @objc public static let AdResumed: Swift.String
+  @objc public static let PayPreviewEnded: Swift.String
+  @objc public static let Metadata: Swift.String
+  @objc public static let Mute: Swift.String
+  @objc public static let Unmute: Swift.String
+  @objc public static let Second: Swift.String
+  @objc public static let Quarter: Swift.String
+  @objc public static let Replay: Swift.String
+  @objc public static let StartSession: Swift.String
+  @objc public static let EnterPIP: Swift.String
+  @objc public static let ExitPIP: Swift.String
+  @objc public static let ExitRemote: Swift.String
+  @objc public static let EnterRemote: Swift.String
+  @objc public static let MainInteraction: Swift.String
+  @objc public static let DownloadStarted: Swift.String
+  @objc public static let DownloadProgress: Swift.String
+  @objc public static let DownloadError: Swift.String
+  @objc public static let DownloadReady: Swift.String
+  @objc public static let PodcastURLSelected: Swift.String
+  @objc public static let ShowHotspot: Swift.String
+  @objc public static let PlayerAdded: Swift.String
+  @objc public static let ChangeMedia: Swift.String
+  @objc public static let ChangePlayPos: Swift.String
+  @objc public static let ChangeMediaIntent: Swift.String
+  @objc public static let ShowOverlay: Swift.String
+  @objc public static let HideOverlay: Swift.String
+  @objc public static let TrickPlay: Swift.String
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc open class NexxPLAYEnvironment : ObjectiveC.NSObject {
+  @objc public var domain: Swift.String
+  @objc public var sessionID: Swift.String
+  @objc public var language: Swift.String?
+  @objc public var userHash: Swift.String
+  @objc public var externalUserReference: Swift.String
+  @objc public var affiliatePartner: Swift.Int
+  @objc public var deliveryPartner: Swift.Int
+  @objc public var contextReference: Swift.String
+  @objc public var useSSL: Swift.Bool
+  @objc public var trackingOptOuted: Swift.Bool
+  @objc public var consentString: Swift.String
+  @objc public var alwaysInFullscreen: Swift.Bool
+  @objc public var showCloseButtonOnFullscreen: Swift.Bool
+  unowned public var googleIMAReferenceViewController: UIKit.UIViewController?
+  @objc public var hideStatusbarOnFullscreen: Swift.Bool
+  @objc public var openPodcastURLsDirectly: Swift.Bool
+  @objc convenience public init(dictionary: Foundation.NSDictionary)
+  @objc public init(domain: Swift.String)
+  @objc public init(domain: Swift.String, dictionary: [Swift.String : Any])
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers open class NexxPLAYConfiguration : ObjectiveC.NSObject {
+  @objc public var dataMode: Swift.String
+  @objc public var backgroundColor: UIKit.UIColor
+  @objc public var titleColor: UIKit.UIColor?
+  @objc public var subtitleColor: UIKit.UIColor?
+  @objc public var seekbarColor: UIKit.UIColor?
+  @objc public var loaderSkin: Swift.String
+  @objc public var hidePrevNext: Swift.Int
+  @objc public var autoPlay: Swift.Int
+  @objc public var autoNext: Swift.Int
+  @objc public var exitMode: Swift.String
+  @objc public var titleMode: Swift.Int
+  @objc public var menuMode: Swift.Int
+  @objc public var captionMode: Swift.String
+  @objc public var watermarkMode: Swift.Int
+  @objc public var delay: Swift.Double
+  @objc public var startPosition: Swift.Int
+  @objc public var adProvider: Swift.String
+  @objc public var adType: Swift.String
+  @objc public var adPrerollURL: Swift.String
+  @objc public var adMidrollURL: Swift.String
+  @objc public var adPostrollURL: Swift.String
+  @objc public var adBannerURL: Swift.String
+  @objc public var adBumperURL: Swift.String
+  @objc public var adMidrollInterval: Swift.Int
+  @objc public var adBannerInterval: Swift.Int
+  @objc public var disableAds: Swift.Int
+  @objc public var disablePrerolls: Swift.Int
+  @objc public var disableMidrolls: Swift.Int
+  @objc public var disablePostrolls: Swift.Int
+  @objc public var disableBanners: Swift.Int
+  @objc public var enableInteractions: Swift.Int
+  @objc public var enableScenes: Swift.Int
+  @objc public var enableSidebar: Swift.Int
+  @objc public var enableAirPlay: Swift.Int
+  @objc public var enableFullscreen: Swift.Int
+  @objc public var enableAutoResume: Swift.Int
+  @objc public var webURLRepresentation: Swift.String
+  @objc public var streamingFilter: Swift.String
+  @objc public var loadCustomAttributes: Swift.Int
+  @objc public var forcePrevNext: Swift.Int
+  @objc public var enableSeekingButtons: Swift.Int
+  @objc public var playbackMode: Swift.String
+  @objc public var disableErrorExit: Swift.Int
+  @objc public var imageScaleMode: Swift.String
+  @objc public var audioSkin: Swift.String
+  @objc public var emitter: Swift.String
+  @objc public var enableSystemMedia: Swift.String
+  @objc public var enableTrickPlay: Swift.Int
+  @objc public var bumperMode: Swift.Int
+  @objc public var abTestVersion: Swift.Int
+  @objc public var useContainerMetadata: Swift.Int
+  @objc public var adVASTTimeout: Swift.Float
+  @objc public var adMediaTimeout: Swift.Double
+  @objc public var respectAutoPlayDataSaver: Swift.Int
+  @objc public var streamingFilterDataSaver: Swift.String
+  @objc public var enableStartScreenTitle: Swift.Int
+  @objc convenience public init(dictionary: Foundation.NSDictionary)
+  @objc override dynamic public init()
+  public init(dictionary: [Swift.String : Any])
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) open class NexxPLAYView : UIKit.UIView {
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @objc deinit
+  @objc @_Concurrency.MainActor(unsafe) open func setEnvironment(_ environment: nexxPlay.NexxPLAYEnvironment)
+  @objc @_Concurrency.MainActor(unsafe) open func updateEnvironment(userHash: Swift.String = "", affiliatePartner: Swift.Int = 0, deliveryPartner: Swift.Int = 0, contextReference: Swift.String = "", consentString: Swift.String = "", useSSL: Swift.Bool, trackingOptOuted: Swift.Bool, showCloseButtonOnFullscreen: Swift.Bool, hideStatusbarOnFullscreen: Swift.Bool, openPodcastURLsDirectly: Swift.Bool, googleIMAReferenceViewController: UIKit.UIViewController? = nil, externalUserReference: Swift.String = "")
+  @objc @_Concurrency.MainActor(unsafe) open func startPlay(streamType: Swift.String, mediaID: Swift.String, configuration: nexxPlay.NexxPLAYConfiguration)
+  @objc @_Concurrency.MainActor(unsafe) open func startPlayWithGlobalID(globalID: Swift.String, configuration: nexxPlay.NexxPLAYConfiguration)
+  @objc @_Concurrency.MainActor(unsafe) open func startPlayWithRemoteMedia(streamType: Swift.String, reference: Swift.String, provider: Swift.String, configuration: nexxPlay.NexxPLAYConfiguration)
+  @objc @_Concurrency.MainActor(unsafe) open func updateConfiguration(preUrl: Swift.String = "", midUrl: Swift.String = "", midInterval: Swift.Double = 0, bannerUrl: Swift.String = "", bannerInterval: Swift.Double = 0, postUrl: Swift.String = "", bumperUrl: Swift.String = "", webURLRepresentation: Swift.String = "")
+  @objc @_Concurrency.MainActor(unsafe) open func clearCache()
+  @objc @_Concurrency.MainActor(unsafe) open func play()
+  @objc @_Concurrency.MainActor(unsafe) open func pause()
+  @objc @_Concurrency.MainActor(unsafe) open func toggle()
+  @objc @_Concurrency.MainActor(unsafe) open func mute()
+  @objc @_Concurrency.MainActor(unsafe) open func unmute()
+  @objc @_Concurrency.MainActor(unsafe) open func seekTo(_ time: Swift.Float)
+  @objc @_Concurrency.MainActor(unsafe) open func seekBy(_ time: Swift.Float)
+  @objc @_Concurrency.MainActor(unsafe) open func next()
+  @objc @_Concurrency.MainActor(unsafe) open func previous()
+  @objc @_Concurrency.MainActor(unsafe) open func swapToPosition(_ position: Swift.Int)
+  @objc @_Concurrency.MainActor(unsafe) open func swapToMediaItem(mediaID: Swift.String, streamType: Swift.String? = nil, startPosition: Swift.Int = 0, delay: Swift.Double = 0, reason: Swift.String? = nil, showReturnButton: Swift.Bool = false)
+  @objc @_Concurrency.MainActor(unsafe) open func swapToGlobalID(globalID: Swift.String, startPosition: Swift.Int = 0, delay: Swift.Double = 0, reason: Swift.String? = nil, showReturnButton: Swift.Bool = false)
+  @objc @_Concurrency.MainActor(unsafe) open func swapToRemoteMedia(reference: Swift.String, streamType: Swift.String? = nil, provider: Swift.String, delay: Swift.Double = 0, reason: Swift.String? = nil, showReturnButton: Swift.Bool = false)
+  @objc @_Concurrency.MainActor(unsafe) open func getCurrentMedia() -> [Swift.String : Any]
+  @objc @_Concurrency.MainActor(unsafe) open func getCurrentMediaParent() -> [Swift.String : Any]?
+  @objc @_Concurrency.MainActor(unsafe) open func getCurrentPlaybackState() -> [Swift.String : Any]
+  @objc @_Concurrency.MainActor(unsafe) open func getCaptions(forLanguage language: Swift.String? = nil) -> [[Swift.String : Any]]?
+  @objc @_Concurrency.MainActor(unsafe) open func getAudioTracks() -> [[Swift.String : Any]]?
+  @objc @_Concurrency.MainActor(unsafe) open func getCurrentTime() -> Swift.Float
+  @objc @_Concurrency.MainActor(unsafe) open func isPlaying() -> Swift.Bool
+  @objc @_Concurrency.MainActor(unsafe) open func isPlayingAd() -> Swift.Bool
+  @objc @_Concurrency.MainActor(unsafe) open func isMuted() -> Swift.Bool
+  @objc @_Concurrency.MainActor(unsafe) open func isInPiP() -> Swift.Bool
+  @objc @_Concurrency.MainActor(unsafe) open func addObserverForAllNotifications(_ observer: Swift.AnyObject, selector: Swift.String)
+  @objc @_Concurrency.MainActor(unsafe) open func removeObserverForAllNotifications(_ observer: Swift.AnyObject)
+  @objc @_Concurrency.MainActor(unsafe) open func checkPayment()
+  @objc @_Concurrency.MainActor(unsafe) open func startDownloadLocalMedia(mediaID: Swift.String, streamType: Swift.String, provider: Swift.String? = nil)
+  @objc @_Concurrency.MainActor(unsafe) open func listLocalMedia(streamType: Swift.String) -> [[Swift.String : Swift.String]]
+  @objc @_Concurrency.MainActor(unsafe) open func hasDownloadOfLocalMedia(mediaID: Swift.String, streamType: Swift.String, provider: Swift.String? = nil) -> Swift.Bool
+  @objc @_Concurrency.MainActor(unsafe) open func removeLocalMedia(mediaID: Swift.String, streamType: Swift.String, provider: Swift.String? = nil)
+  @objc @_Concurrency.MainActor(unsafe) open func clearLocalMedia(streamType: Swift.String? = nil)
+  @objc @_Concurrency.MainActor(unsafe) open func diskSpaceUsedForLocalMedia() -> Swift.Int64
+}
+public struct NexxPLAYWidgetConfiguration {
+  public init(app: Swift.Int? = nil, language: Swift.String? = nil, slideUpdateInterval: Swift.Double? = nil, feedUpdateInterval: Swift.Double? = nil, widgetPreviewImage: Swift.String? = nil, widgetPreviewTitle: Swift.String? = nil, widgetPreviewInfo: Swift.String? = nil)
+}
+public struct WidgetMedia : Swift.Codable {
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+@objc @available(iOS 10.0, *)
+@_Concurrency.MainActor(unsafe) open class NexxPLAYTodayView : UIKit.UIView, UIKit.UICollectionViewDelegate, UIKit.UICollectionViewDataSource, UIKit.UICollectionViewDelegateFlowLayout {
+  @objc dynamic public init()
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @_Concurrency.MainActor(unsafe) open func initializeView(withData widgetData: nexxPlay.NexxPLAYWidgetData, didSelectMedia: @escaping (nexxPlay.WidgetMedia) -> ())
+  @_Concurrency.MainActor(unsafe) open func widgetPerformUpdate(completionHandler: @escaping ((CoreGraphics.CGFloat?) -> Swift.Void))
+  @_Concurrency.MainActor(unsafe) open func add(toView view: UIKit.UIView)
+  @available(iOS 10.0, *)
+  @_Concurrency.MainActor(unsafe) open func widgetActiveDisplayModeDidChange(_ activeDisplayModeRaw: Swift.Int, withMaximumSize maxSize: CoreGraphics.CGSize) -> CoreGraphics.CGSize
+  @_Concurrency.MainActor(unsafe) @objc public func collectionView(_ collectionView: UIKit.UICollectionView, numberOfItemsInSection section: Swift.Int) -> Swift.Int
+  @_Concurrency.MainActor(unsafe) @objc public func collectionView(_ collectionView: UIKit.UICollectionView, layout collectionViewLayout: UIKit.UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Swift.Int) -> CoreGraphics.CGFloat
+  @_Concurrency.MainActor(unsafe) @objc public func collectionView(_ collectionView: UIKit.UICollectionView, layout collectionViewLayout: UIKit.UICollectionViewLayout, sizeForItemAt indexPath: Foundation.IndexPath) -> CoreGraphics.CGSize
+  @_Concurrency.MainActor(unsafe) @objc public func collectionView(_ collectionView: UIKit.UICollectionView, cellForItemAt indexPath: Foundation.IndexPath) -> UIKit.UICollectionViewCell
+  @_Concurrency.MainActor(unsafe) @objc public func collectionView(_ collectionView: UIKit.UICollectionView, didSelectItemAt indexPath: Foundation.IndexPath)
+  @objc deinit
+}
+@available(iOS 14.0, *)
+public struct WidgetEntryView : SwiftUI.View {
+  public var entry: nexxPlay.NexxPLAYWidgetProvider.Entry
+  public init(entry: nexxPlay.NexxPLAYWidgetProvider.Entry)
+  @_Concurrency.MainActor(unsafe) public var body: some SwiftUI.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s8nexxPlay15WidgetEntryViewV4bodyQrvp", 0) __
+}
+@available(iOS 14.0, *)
+public struct NexxPLAYWidgetProvider : WidgetKit.TimelineProvider {
+  public typealias Entry = nexxPlay.WidgetEntry
+  public init(widgetData: nexxPlay.NexxPLAYWidgetData)
+  public func placeholder(in context: nexxPlay.NexxPLAYWidgetProvider.Context) -> nexxPlay.WidgetEntry
+  public func getSnapshot(in context: nexxPlay.NexxPLAYWidgetProvider.Context, completion: @escaping (nexxPlay.WidgetEntry) -> Swift.Void)
+  public func getTimeline(in context: nexxPlay.NexxPLAYWidgetProvider.Context, completion: @escaping (WidgetKit.Timeline<nexxPlay.WidgetEntry>) -> Swift.Void)
+}
+extension UIKit.UIImage {
+  public class func gifImageWithURL(_ gifUrl: Swift.String) -> UIKit.UIImage?
+}

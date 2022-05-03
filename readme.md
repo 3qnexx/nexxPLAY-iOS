@@ -10,6 +10,16 @@ Please find the complete documentation of the nexxPLAY Widget following this [li
 
 ## Changelog
 
+### v6.4.02
+
+- remove interface methods _getCaptionLanguages()_ and _getAudioLanguages()_
+- rename interface method _getCaptionData()_ to _getCaptions_
+- add interface methods _getCurrentMediaParent()_ and _getAudioTracks()_
+- enhance captions
+- add haptic feedback for some interactions
+
+Compiled with XCode 13.3.1 (Swift 5.6.1)
+
 ### v6.4.01
 
 - UI fixes
