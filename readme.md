@@ -10,6 +10,11 @@ Please find the complete documentation of the nexxPLAY Widget following this [li
 
 ## Changelog
 
+### v6.4.2
+- UI fixes
+
+Compiled with XCode 13.4.1 (Swift 5.6.1)
+
 ### v6.4.1
 - add accessibility feature voice over
 - include caption styles defined in the iOS settings
