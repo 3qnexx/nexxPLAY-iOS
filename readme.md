@@ -10,6 +10,16 @@ Please find the complete documentation of the nexxPLAY Widget following this [li
 
 ## Changelog
 
+### v6.4.3
+- update to iOS 16
+- update to the latest Google IMA SDK integration (v3.17)
+- remove _adType_ and all variables regarding banner from the configuration model
+- remove _captionMode_ from the configuration model
+- replace interface method _getCaptions_ with _getTextTracks_ that returns all text tracks
+- remove player skins
+
+Compiled with XCode 14.0.1 (Swift 5.7)
+
 ### v6.4.2
 - UI fixes
 
