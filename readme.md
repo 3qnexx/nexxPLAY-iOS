@@ -10,6 +10,13 @@ Please find the complete documentation of the nexxPLAY Widget following this [li
 
 ## Changelog
 
+### v6.4.4
+- enhance reporting
+- add support for right to left languages
+- add option for muted start
+
+Compiled with XCode 14.2 (Swift 5.7)
+
 ### v6.4.3
 - update to iOS 16
 - update to the latest Google IMA SDK integration (v3.17)
