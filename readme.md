@@ -10,6 +10,12 @@ Please find the complete documentation of the nexxPLAY Widget following this [li
 
 ## Changelog
 
+### v6.4.5
+- enhance reporting
+- update IMA SDK
+
+Compiled with XCode 15.0 (Swift 5.9)
+
 ### v6.4.4
 - enhance reporting
 - add support for right to left languages
