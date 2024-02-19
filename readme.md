@@ -10,6 +10,13 @@ Please find the complete documentation of the nexxPLAY Widget following this [li
 
 ## Changelog
 
+### v6.4.6
+- adding chapters for audio
+- refactoring reporting
+- update IMA SDK
+
+Compiled with XCode 15.0 (Swift 5.9)
+
 ### v6.4.5
 - adding Support for enhanced Content-Moderated Metadata
 - adding Support for 3Q CDP LiveStreams
