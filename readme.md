@@ -10,6 +10,11 @@ Please find the complete documentation of the nexxPLAY Widget following this [li
 
 ## Changelog
 
+### v6.4.7
+- refactoring reporting
+
+Compiled with XCode 15.4 (Swift 5.10)
+
 ### v6.4.6
 - adding chapters for audio
 - refactoring reporting
