@@ -11,7 +11,8 @@ Please find the complete documentation of the nexxPLAY Widget following this [li
 ## Changelog
 
 ### v6.4.7
-- add Support for AI TextTrack UI
+- adding Support for AI TextTrack UI
+- adding Support for Samaritan 2.0 Analytics
 
 Compiled with XCode 15.4 (Swift 5.10)
 
