@@ -18833,7 +18833,7 @@
     {
       "filePath": "\/Users\/danielleberle\/Projekte\/nexxtv\/nexxPLAY\/nexxPlay\/nexxPlay\/NexxPlayer.swift",
       "kind": "BooleanLiteral",
-      "offset": 93266,
+      "offset": 93254,
       "length": 4,
       "value": "true"
     },
@@ -18966,7 +18966,7 @@
     {
       "filePath": "\/Users\/danielleberle\/Projekte\/nexxtv\/nexxPLAY\/nexxPlay\/nexxPlay\/ReportingManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 31586,
+      "offset": 31520,
       "length": 5,
       "value": "false"
     },

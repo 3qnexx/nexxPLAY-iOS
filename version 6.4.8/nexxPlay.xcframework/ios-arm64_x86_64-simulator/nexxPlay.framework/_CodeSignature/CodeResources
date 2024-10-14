@@ -26,15 +26,15 @@
 		</data>
 		<key>Modules/nexxPlay.swiftmodule/Project/arm64-apple-ios-simulator.swiftsourceinfo</key>
 		<data>
-		0kYhOGBkZQ1l1cPp7Ax7KTqkFdI=
+		3YAwKFb+TZ2ySlWNi79Y9WFUFTA=
 		</data>
 		<key>Modules/nexxPlay.swiftmodule/Project/x86_64-apple-ios-simulator.swiftsourceinfo</key>
 		<data>
-		hknDVftHMTYYJk7GlQ/gP6Zr1h0=
+		ognpwUNsICOVBw+nRDw4vyXtDQI=
 		</data>
 		<key>Modules/nexxPlay.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
-		50U3dMMYU6k1x2H3IlUYc7bUDSk=
+		IJS3kW0DRS774FBanhhv0siCgvU=
 		</data>
 		<key>Modules/nexxPlay.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
@@ -50,11 +50,11 @@
 		</data>
 		<key>Modules/nexxPlay.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		/3AdhfeuTB5yKd1owidLXPc3Nog=
+		6p95HkLfCMj4utM6QmfNo2R+eJw=
 		</data>
 		<key>Modules/nexxPlay.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
-		D6A7D3+/4RekaGGsVLMIW7ajqpk=
+		MNUOv7EenzZYl8C4iVArMWWD8MY=
 		</data>
 		<key>Modules/nexxPlay.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
@@ -70,11 +70,11 @@
 		</data>
 		<key>Modules/nexxPlay.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		MPgz1nzbpZlP4GJaoSfF2oZ8qkY=
+		iceMA+td3ynycm7NF8wzqLpCCF0=
 		</data>
 		<key>PrivacyInfo.xcprivacy</key>
 		<data>
-		MhmdlvkVnRoelziLWmCvNPZo7kg=
+		ANU4k78aVqrS7CGtO4zdORivUec=
 		</data>
 		<key>audiothek@2x.png</key>
 		<data>
@@ -147,21 +147,21 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			4f6IQVvWLUSnXsBbglYF5Zr8dQevoJQQ5RcWQrKChC8=
+			qHg5Arxxiws+U5xTEEo6iBWG3hqfaeg0A9jyWG90pdA=
 			</data>
 		</dict>
 		<key>Modules/nexxPlay.swiftmodule/Project/x86_64-apple-ios-simulator.swiftsourceinfo</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			58jsFfYVRsSLNw5tTXn/Wv8LhgVQSGApZE/TaptvI1o=
+			qkpe3jL3mdarJ9zDsBtZETeOTYmDnRa1Si5Ilzkj7oY=
 			</data>
 		</dict>
 		<key>Modules/nexxPlay.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			z8YODPrpC3IxFlpc0tAwbZxFh+XvJSeAGX1KQ+sXC1A=
+			OEZgejX6ELBKke5SPhIq+/e82pdTdjyssu0tcxXzEVQ=
 			</data>
 		</dict>
 		<key>Modules/nexxPlay.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
@@ -189,14 +189,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			zY65nJ2K5pzeFYu56AuC1rsDV54TfyFNPrL3PMAaVTE=
+			Ri/G2gv1QFcbnBqTypWBWCnNpfJvxuHlNbW2Y92EcFs=
 			</data>
 		</dict>
 		<key>Modules/nexxPlay.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			hDS2RQ8QUd1NH9xoGa/UHSUAnaSpwKWFd6Lr8RPQXrU=
+			2CWdyFnRoXfllimVd8YCmFrkzL+pU3sEHMEaSxx7LAE=
 			</data>
 		</dict>
 		<key>Modules/nexxPlay.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
@@ -224,14 +224,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			jszgfPcjg3OfZFntz07cgqKvbQSe0/Grpuri9t0kgMs=
+			xpvl9hMIyDaFA+XnwMA5We9eVqjvz1cqPzNVQ/mIViU=
 			</data>
 		</dict>
 		<key>PrivacyInfo.xcprivacy</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			lhEyWd9OpueuxqsvrgxGPegQVOw34remvQHn3ThFxrw=
+			LVnus1Pj6LTJLqlkN4FtUqdFPdf4ugjm/RQt2lT/+VY=
 			</data>
 		</dict>
 		<key>audiothek@2x.png</key>
