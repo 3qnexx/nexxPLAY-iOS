@@ -10,6 +10,12 @@ Please find the complete documentation of the nexxPLAY Widget following this [li
 
 ## Changelog
 
+###v6.4.9
+- refactoring reporting
+- update IMA SDK
+
+Compiled with XCode 26.0.1 (Swift 6.2) 
+
 ### v6.4.8
 - refactoring reporting
 
