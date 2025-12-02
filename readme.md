@@ -10,7 +10,7 @@ Please find the complete documentation of the nexxPLAY Widget following this [li
 
 ## Changelog
 
-###v6.4.9
+### v6.4.9
 - refactoring reporting
 - update IMA SDK
 
